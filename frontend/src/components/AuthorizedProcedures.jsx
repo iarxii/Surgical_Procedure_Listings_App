@@ -25,17 +25,24 @@ export default function AuthorizedProcedures({ onSelectProcedure }) {
 
     if (loading) {
         return (
-            <div className="mt-12 text-center text-gray-400 animate-pulse">
-                <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-200 w-48 mb-4 mx-auto"></div>
-                <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-200 max-w-[360px] mx-auto mb-2.5"></div>
-                <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-200 mb-2.5 mx-auto max-w-[300px]"></div>
+            <div className="mt-12 text-center animate-pulse" style={{ color: 'var(--text-muted)' }}>
+                <div className="h-5 rounded-full w-48 mb-4 mx-auto" style={{ backgroundColor: 'var(--border)' }}></div>
+                <div className="h-4 rounded-full max-w-[360px] mx-auto mb-2.5" style={{ backgroundColor: 'var(--border)' }}></div>
+                <div className="h-4 rounded-full mb-2.5 mx-auto max-w-[300px]" style={{ backgroundColor: 'var(--border)' }}></div>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="mt-12 bg-red-50 text-red-600 rounded-xl p-4 flex items-center shadow-sm">
+            <div
+                className="mt-12 rounded-xl p-4 flex items-center shadow-sm"
+                style={{
+                    backgroundColor: 'var(--error-bg)',
+                    color: 'var(--error-text)',
+                    border: '1px solid var(--error-border)',
+                }}
+            >
                 <AlertCircle className="h-5 w-5 mr-3" />
                 {error}
             </div>
@@ -58,14 +65,20 @@ export default function AuthorizedProcedures({ onSelectProcedure }) {
 
     return (
         <div className="mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="flex items-center justify-between mb-8 border-b border-gray-200 pb-4">
-                <h3 className="text-2xl font-black text-gray-900 flex items-center gap-3">
-                    <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg">
+            <div className="flex items-center justify-between mb-8 pb-4" style={{ borderBottom: '1px solid var(--border)' }}>
+                <h3 className="text-2xl font-black flex items-center gap-3" style={{ color: 'var(--text-primary)' }}>
+                    <div className="p-2 rounded-lg" style={{ backgroundColor: 'var(--accent-bg)', color: 'var(--accent)' }}>
                         <BookOpen className="h-5 w-5" />
                     </div>
                     Authorized Procedure List
                 </h3>
-                <span className="bg-gray-100 text-gray-600 text-sm font-semibold px-3 py-1 rounded-full shadow-sm">
+                <span
+                    className="text-sm font-semibold px-3 py-1 rounded-full shadow-sm"
+                    style={{
+                        backgroundColor: 'var(--bg-secondary)',
+                        color: 'var(--text-muted)',
+                    }}
+                >
                     {procedures.length} Procedures
                 </span>
             </div>
@@ -73,10 +86,15 @@ export default function AuthorizedProcedures({ onSelectProcedure }) {
             <div className="space-y-10">
                 {Object.entries(groupedProcedures).map(([speciality, items]) => (
                     <div key={speciality} className="relative">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-indigo-600 mb-4 flex items-center gap-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-4" style={{ color: 'var(--accent)' }}>
                             {speciality}
-                            <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full text-xs">{items.length}</span>
-                            <div className="h-px bg-indigo-100 flex-1"></div>
+                            <span
+                                className="px-2 py-0.5 rounded-full text-xs"
+                                style={{ backgroundColor: 'var(--accent-bg)', color: 'var(--accent)' }}
+                            >
+                                {items.length}
+                            </span>
+                            <div className="h-px flex-1" style={{ backgroundColor: 'var(--border-accent)' }}></div>
                         </h4>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -84,17 +102,37 @@ export default function AuthorizedProcedures({ onSelectProcedure }) {
                                 <button
                                     key={proc.id}
                                     onClick={() => onSelectProcedure(proc.procedure_name)}
-                                    className="text-left group bg-white flex flex-col justify-between hover:bg-indigo-50 border border-gray-200 hover:border-indigo-300 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 h-full"
+                                    className="text-left group flex flex-col justify-between rounded-xl p-4 shadow-sm transition-all duration-300 transform hover:-translate-y-1 h-full cursor-pointer"
+                                    style={{
+                                        backgroundColor: 'var(--bg-card)',
+                                        border: '1px solid var(--border)',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor = 'var(--accent-bg)';
+                                        e.currentTarget.style.borderColor = 'var(--border-accent)';
+                                        e.currentTarget.style.boxShadow = `0 10px 15px var(--shadow-color)`;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor = 'var(--bg-card)';
+                                        e.currentTarget.style.borderColor = 'var(--border)';
+                                        e.currentTarget.style.boxShadow = '';
+                                    }}
                                 >
-                                    <p className="font-semibold text-gray-900 group-hover:text-indigo-900 leading-tight mb-4">
+                                    <p className="font-semibold leading-tight mb-4" style={{ color: 'var(--text-primary)' }}>
                                         {proc.procedure_name}
                                     </p>
-                                    <div className="flex items-center justify-between text-xs text-gray-500 font-medium w-full mt-auto">
-                                        <span className="bg-gray-100 px-2 py-0.5 rounded text-gray-600 group-hover:bg-indigo-100 group-hover:text-indigo-700 transition-colors">
+                                    <div className="flex items-center justify-between text-xs font-medium w-full mt-auto" style={{ color: 'var(--text-muted)' }}>
+                                        <span
+                                            className="px-2 py-0.5 rounded transition-colors"
+                                            style={{
+                                                backgroundColor: 'var(--bg-secondary)',
+                                                color: 'var(--text-muted)',
+                                            }}
+                                        >
                                             TTG: {proc.ttg_days ? `${proc.ttg_days} Days` : proc.ttg_months}
                                         </span>
                                         {proc.icd_codes && proc.icd_codes.length > 0 && (
-                                            <span className="text-gray-400 group-hover:text-indigo-500 transition-colors font-mono tracking-wide text-[11px]">
+                                            <span className="font-mono tracking-wide text-[11px]" style={{ color: 'var(--text-muted)' }}>
                                                 {proc.icd_codes.map(c => c.code).join(', ')}
                                             </span>
                                         )}

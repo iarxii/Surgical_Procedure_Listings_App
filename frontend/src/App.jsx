@@ -1,11 +1,15 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
+import { ThemeProvider } from './context/ThemeContext';
 import SearchInput from './components/SearchInput';
 import DualCodeDisplay from './components/DualCodeDisplay';
 import AuthorizedProcedures from './components/AuthorizedProcedures';
+import ThemeToggle from './components/ThemeToggle';
 import { Activity, Clock, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
-export default function App() {
+import logo from './assets/gauteng-health_12_orig.jpg';
+
+function AppContent() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,28 +39,53 @@ export default function App() {
   const primaryProcedure = results?.local_procedures?.[0];
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-indigo-100">
-      <header className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-10 transition-all duration-300">
+    <div className="min-h-screen font-sans" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+      <header
+        className="backdrop-blur-md shadow-sm sticky top-0 z-10 transition-all duration-300"
+        style={{
+          backgroundColor: 'color-mix(in srgb, var(--bg-card) 80%, transparent)',
+          borderBottom: '1px solid var(--border)',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 p-2.5 rounded-xl text-white shadow-lg shadow-indigo-200">
+            <div
+              className="p-2.5 rounded-xl text-white shadow-lg"
+              style={{
+                background: `linear-gradient(135deg, var(--accent), var(--accent-dark))`,
+                boxShadow: `0 4px 14px var(--shadow-color)`,
+              }}
+            >
               <Activity className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-2xl font-black text-gray-900 tracking-tight leading-none">Surgical Procedure Mapping</h1>
-              <span className="text-xs font-bold text-indigo-600 uppercase tracking-widest mt-1 block">Clinical SLA Tool</span>
+              <h1 className="text-2xl font-black tracking-tight leading-none" style={{ color: 'var(--text-primary)' }}>
+                Surgical Procedure Mapping
+              </h1>
+              <span className="text-xs font-bold uppercase tracking-widest mt-1 block" style={{ color: 'var(--accent)' }}>
+                Clinical SLA Tool
+              </span>
             </div>
           </div>
+          <ThemeToggle />
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12 transform transition-all hover:scale-[1.01] duration-300">
-          <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 pb-2">
+          <img src={logo} alt="Gauteng Health Logo" className="w-auto h-50 mx-auto mb-4 rounded-xl" />
+          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl pb-2"
+            style={{
+              backgroundImage: `linear-gradient(to right, var(--text-primary), var(--text-secondary), var(--text-primary))`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
             Find Procedures & Map Codes
           </h2>
-          <p className="mt-6 text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            Search for surgical procedures to view <strong className="text-indigo-600 font-semibold">Treatment Time Guarantees (TTGs)</strong> and cross-walk ICD-10-CM and ICD-11 code mappings seamlessly.
+          <p className="mt-6 text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            Search for surgical procedures to view <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>Treatment Time Guarantees (TTGs)</strong> and cross-walk ICD-10-CM and ICD-11 code mappings seamlessly.
           </p>
         </div>
 
@@ -65,7 +94,14 @@ export default function App() {
         </div>
 
         {error && (
-          <div className="max-w-2xl mx-auto mt-8 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-center shadow-sm">
+          <div
+            className="max-w-2xl mx-auto mt-8 px-4 py-3 rounded-xl flex items-center shadow-sm"
+            style={{
+              backgroundColor: 'var(--error-bg)',
+              border: '1px solid var(--error-border)',
+              color: 'var(--error-text)',
+            }}
+          >
             <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0" />
             <p className="text-sm font-medium">{error}</p>
           </div>
@@ -74,8 +110,8 @@ export default function App() {
         {loading && (
           <div className="flex justify-center my-16">
             <div className="relative">
-              <div className="animate-spin rounded-full h-14 w-14 border-b-4 border-indigo-600"></div>
-              <div className="absolute inset-0 border-4 border-gray-200 rounded-full blur-[2px] opacity-20 -z-10"></div>
+              <div className="animate-spin rounded-full h-14 w-14 border-b-4" style={{ borderColor: 'var(--accent)' }}></div>
+              <div className="absolute inset-0 rounded-full blur-[2px] opacity-20 -z-10" style={{ border: '4px solid var(--border)' }}></div>
             </div>
           </div>
         )}
@@ -83,41 +119,91 @@ export default function App() {
         {results && !loading ? (
           <div className="mt-16 transition-all duration-700 ease-out animate-in fade-in slide-in-from-bottom-4">
             {primaryProcedure && (
-              <div className="bg-white rounded-3xl shadow-lg border border-gray-200 p-8 mb-10 transform transition-all hover:shadow-xl hover:-translate-y-1 duration-300 overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 opacity-50"></div>
+              <div
+                className="rounded-3xl shadow-lg p-8 mb-10 transform transition-all hover:shadow-xl hover:-translate-y-1 duration-300 overflow-hidden relative"
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full -z-10 opacity-50" style={{ backgroundColor: 'var(--accent-bg)' }}></div>
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
                   <div className="flex-1">
-                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-100 shadow-sm mb-4">
+                    <span
+                      className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm mb-4"
+                      style={{
+                        backgroundColor: 'var(--accent-bg)',
+                        color: 'var(--accent)',
+                        border: '1px solid var(--border-accent)',
+                      }}
+                    >
                       {primaryProcedure.speciality}
                     </span>
-                    <h2 className="text-3xl font-black text-gray-900 leading-tight">{primaryProcedure.procedure_name}</h2>
-                    <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100 inline-flex">
-                      {primaryProcedure.level && <span className="flex items-center"><strong className="mr-1 text-gray-900">Level:</strong> {primaryProcedure.level}</span>}
-                      {primaryProcedure.level && primaryProcedure.care_icu && <span className="text-gray-300">|</span>}
-                      {primaryProcedure.care_icu && <span className="flex items-center"><strong className="mr-1 text-gray-900">Setting:</strong> {primaryProcedure.care_icu}</span>}
+                    <h2 className="text-3xl font-black leading-tight" style={{ color: 'var(--text-primary)' }}>
+                      {primaryProcedure.procedure_name}
+                    </h2>
+                    <div
+                      className="mt-4 flex flex-wrap gap-4 text-sm p-3 rounded-lg inline-flex"
+                      style={{
+                        backgroundColor: 'var(--bg-secondary)',
+                        border: '1px solid var(--border)',
+                        color: 'var(--text-muted)',
+                      }}
+                    >
+                      {primaryProcedure.level && (
+                        <span className="flex items-center">
+                          <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Level:</strong> {primaryProcedure.level}
+                        </span>
+                      )}
+                      {primaryProcedure.level && primaryProcedure.care_icu && (
+                        <span style={{ color: 'var(--border)' }}>|</span>
+                      )}
+                      {primaryProcedure.care_icu && (
+                        <span className="flex items-center">
+                          <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Setting:</strong> {primaryProcedure.care_icu}
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-indigo-50 to-white rounded-2xl p-6 border border-indigo-100 shadow-sm min-w-[280px]">
-                    <h4 className="text-xs font-bold text-indigo-800 uppercase tracking-widest flex items-center gap-2 mb-3">
-                      <Clock className="h-4 w-4 text-indigo-600" /> Treatment SLA Target
+                  <div
+                    className="rounded-2xl p-6 shadow-sm min-w-[280px]"
+                    style={{
+                      background: `linear-gradient(135deg, var(--accent-bg), var(--bg-card))`,
+                      border: '1px solid var(--border-accent)',
+                    }}
+                  >
+                    <h4 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 mb-3" style={{ color: 'var(--accent-text)' }}>
+                      <Clock className="h-4 w-4" style={{ color: 'var(--accent)' }} /> Treatment SLA Target
                     </h4>
-                    <div className="text-4xl font-extrabold text-indigo-700">
+                    <div className="text-4xl font-extrabold" style={{ color: 'var(--accent)' }}>
                       {primaryProcedure.ttg_days ? `${primaryProcedure.ttg_days} days` : primaryProcedure.ttg_months}
                     </div>
                     {primaryProcedure.ttg_days && (
                       <div className="mt-5 space-y-3">
-                        <div className="flex items-center justify-between text-sm py-2 px-3 bg-white rounded-lg border border-green-200 shadow-sm">
-                          <span className="flex items-center gap-2 text-green-700 font-semibold">
+                        <div
+                          className="flex items-center justify-between text-sm py-2 px-3 rounded-lg shadow-sm"
+                          style={{
+                            backgroundColor: 'var(--success-bg)',
+                            border: '1px solid var(--success-border)',
+                          }}
+                        >
+                          <span className="flex items-center gap-2 font-semibold" style={{ color: 'var(--success-text)' }}>
                             <CheckCircle2 className="h-4 w-4" /> 1st Alert Minimum:
                           </span>
-                          <span className="font-bold text-gray-900">{primaryProcedure.ttg_minimum_70_pct} days</span>
+                          <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{primaryProcedure.ttg_minimum_70_pct} days</span>
                         </div>
-                        <div className="flex items-center justify-between text-sm py-2 px-3 bg-white rounded-lg border border-amber-200 shadow-sm">
-                          <span className="flex items-center gap-2 text-amber-700 font-semibold">
+                        <div
+                          className="flex items-center justify-between text-sm py-2 px-3 rounded-lg shadow-sm"
+                          style={{
+                            backgroundColor: 'var(--warning-bg)',
+                            border: '1px solid var(--warning-border)',
+                          }}
+                        >
+                          <span className="flex items-center gap-2 font-semibold" style={{ color: 'var(--warning-text)' }}>
                             <AlertTriangle className="h-4 w-4" /> 2nd Alert Maximum:
                           </span>
-                          <span className="font-bold text-gray-900">{primaryProcedure.ttg_alert_90_pct} days</span>
+                          <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{primaryProcedure.ttg_alert_90_pct} days</span>
                         </div>
                       </div>
                     )}
@@ -137,5 +223,13 @@ export default function App() {
         )}
       </main>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }

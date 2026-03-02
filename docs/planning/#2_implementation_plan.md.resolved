@@ -1,0 +1,91 @@
+# Theme Toggle — Light/Dark + Color Themes
+
+Add a premium theme system with a **quick light/dark toggle** and a **color theme dropdown** offering 6 curated palettes. Themes persist in `localStorage` and apply instantly via CSS custom properties on the `<html>` element.
+
+## Proposed Changes
+
+### Theme Infrastructure
+
+#### [NEW] [ThemeContext.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/context/ThemeContext.jsx)
+
+React context providing:
+- `theme` — current color theme key (`indigo`, `ocean`, `sunset`, `forest`, `rose`, `slate`)
+- `mode` — `light` or `dark`
+- `setTheme(key)` / `toggleMode()` — setters
+- On mount: reads from `localStorage`, sets `data-theme` and `data-mode` attributes on `<html>`
+- On change: writes to `localStorage`, updates `<html>` attributes
+
+#### [NEW] [ThemeToggle.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/ThemeToggle.jsx)
+
+A polished header widget with two parts:
+1. **Sun/Moon icon button** — instant light ↔ dark toggle with smooth rotation animation
+2. **Palette dropdown** — shows color swatches for each theme; click to select, with a checkmark on the active theme
+
+Dropdown uses `lucide-react` icons (`Sun`, `Moon`, `Palette`, `Check`, `ChevronDown`). Closes on outside click.
+
+---
+
+### CSS Theme Definitions
+
+#### [MODIFY] [index.css](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/index.css)
+
+Define CSS custom properties under `[data-theme][data-mode]` selectors. Each combination (6 themes × 2 modes = 12 variants) sets variables like:
+
+```
+--bg-primary, --bg-secondary, --bg-card
+--text-primary, --text-secondary, --text-muted
+--accent, --accent-light, --accent-dark, --accent-bg
+--border, --border-accent
+--shadow-color
+```
+
+Default = `[data-theme="indigo"][data-mode="light"]` matching the current look.  All 12 variants will be exhaustively defined so switching themes is seamless.
+
+---
+
+### Component Updates
+
+#### [MODIFY] [App.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/App.jsx)
+
+- Import `ThemeProvider` and wrap the return in `<ThemeProvider>`
+- Add `<ThemeToggle />` in the header (right side)
+- Replace hardcoded color classes with CSS variable equivalents via inline `style` + utility classes that reference `var(--*)`.  E.g. `bg-gray-50` → `style={{ backgroundColor: 'var(--bg-primary)' }}`.
+
+#### [MODIFY] [SearchInput.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/SearchInput.jsx)
+
+Update input background, border, text, and icon colors to use CSS variables.
+
+#### [MODIFY] [DualCodeDisplay.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/DualCodeDisplay.jsx)
+
+Update card backgrounds, header bands, text colors, and border colors to use CSS variables.
+
+#### [MODIFY] [AuthorizedProcedures.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/AuthorizedProcedures.jsx)
+
+Update card backgrounds, hover states, text, and badge colors to use CSS variables.
+
+#### [MODIFY] [main.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/main.jsx)
+
+No changes needed — the `ThemeProvider` wraps inside [App.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/App.jsx).
+
+---
+
+## Theme Palette Summary
+
+| Theme | Accent | Light BG | Dark BG |
+|---|---|---|---|
+| **Indigo** (default) | `#4f46e5` | `#f9fafb` | `#0f172a` |
+| **Ocean** | `#0891b2` | `#f0fdfa` | `#0c1b2a` |
+| **Sunset** | `#ea580c` | `#fffbeb` | `#1c1008` |
+| **Forest** | `#16a34a` | `#f0fdf4` | `#0a1f0e` |
+| **Rose** | `#e11d48` | `#fff1f2` | `#1f0a10` |
+| **Slate** | `#64748b` | `#f8fafc` | `#0f172a` |
+
+## Verification Plan
+
+### Browser Testing
+1. Run `cd frontend && npm run dev -- --host` (already running)
+2. Open the app in the browser
+3. Verify the **sun/moon toggle** switches between light and dark mode instantly
+4. Open the **palette dropdown** and click each theme — verify colors change across all sections (header, search, cards, procedure list)
+5. Refresh the page — verify the chosen theme persists
+6. Test dropdown closes when clicking outside

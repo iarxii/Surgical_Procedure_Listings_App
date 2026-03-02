@@ -22,11 +22,25 @@ export default function SearchInput({ onSearch, externalValue }) {
     return (
         <div className="relative max-w-2xl w-full mx-auto group">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-6 w-6 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
+                <Search className="h-6 w-6 transition-colors" style={{ color: 'var(--text-muted)' }} />
             </div>
             <input
                 type="text"
-                className="block w-full pl-12 pr-12 py-4 border-2 border-transparent bg-white shadow-md rounded-2xl leading-5 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 text-lg transition-all hover:bg-gray-50 focus:bg-white"
+                className="block w-full pl-12 pr-12 py-4 border-2 border-transparent shadow-md rounded-2xl leading-5 text-lg transition-all focus:outline-none focus:ring-4"
+                style={{
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-primary)',
+                    boxShadow: `0 4px 6px var(--shadow-color)`,
+                    '--tw-ring-color': 'color-mix(in srgb, var(--accent) 20%, transparent)',
+                }}
+                onFocus={(e) => {
+                    e.target.style.borderColor = 'var(--accent)';
+                    e.target.parentElement.querySelector('.lucide-search').style.color = 'var(--accent)';
+                }}
+                onBlur={(e) => {
+                    e.target.style.borderColor = 'transparent';
+                    e.target.parentElement.querySelector('.lucide-search').style.color = 'var(--text-muted)';
+                }}
                 placeholder="Search for a surgical procedure (e.g. Breast Cancer, Appendectomy)..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -34,7 +48,10 @@ export default function SearchInput({ onSearch, externalValue }) {
             {query && (
                 <button
                     onClick={() => { setQuery(''); onSearch(''); }}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-indigo-500 focus:outline-none transition-colors"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center focus:outline-none transition-colors cursor-pointer"
+                    style={{ color: 'var(--text-muted)' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
                     aria-label="Clear search"
                 >
                     <X className="h-5 w-5" />

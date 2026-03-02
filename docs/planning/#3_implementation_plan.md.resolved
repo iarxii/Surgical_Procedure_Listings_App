@@ -1,0 +1,76 @@
+# Dashboard Page — Implementation Plan
+
+Add a Dashboard page that displays key metrics and visualizations derived from the procedures database, with client-side navigation to switch between the Dashboard and the existing Search/Mapping page.
+
+## Proposed Changes
+
+### Backend — New Dashboard Statistics Endpoint
+
+#### [NEW] [DashboardController.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Http/Controllers/DashboardController.php)
+
+A new controller that queries the [procedures](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/IcdCode.php#11-17), `icd_codes`, and `procedure_icd_mappings` tables and returns aggregated statistics:
+
+- **Total Procedures** — count of all procedures
+- **Total Specialities** — distinct speciality count
+- **Total ICD Codes** — count of mapped ICD codes
+- **Total Code Mappings** — count of procedure↔ICD mappings
+- **Average TTG Days** — average of `ttg_days` across procedures
+- **Procedures by Speciality** — `{ speciality: count }` for a donut/bar chart
+- **Procedures by Level** — `{ level: count }` distribution
+- **TTG Distribution** — buckets of TTG day ranges (0–30, 31–60, 61–90, 91–180, 180+ days) for a histogram
+- **Procedures by Care Setting** — `{ care_icu: count }`
+- **Recent Procedures** — 5 most recently added procedures
+
+#### [MODIFY] [api.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/routes/api.php)
+
+Add `Route::get('/dashboard/stats', [DashboardController::class, 'stats']);`.
+
+---
+
+### Frontend — React Router + Dashboard Page
+
+#### Install `react-router-dom`
+
+`npm install react-router-dom` — enables client-side routing.
+
+#### [MODIFY] [App.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/App.jsx)
+
+- Wrap the app in `<BrowserRouter>` with `<Routes>`.
+- Route `/` → `<Dashboard />` (new component).
+- Route `/search` → existing `<AppContent />` (renamed to `SearchPage`).
+- Add a shared navigation bar with links to Dashboard and Search.
+
+#### [NEW] [Dashboard.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/Dashboard.jsx)
+
+A rich, visually polished dashboard page containing:
+
+1. **KPI Cards Row** — 4 animated stat cards:
+   - Total Procedures, Total Specialities, Total ICD Mappings, Avg TTG Days
+   - Each with an icon, large number, and subtle accent gradient background.
+
+2. **Charts Section** (CSS-only, no chart library):
+   - **Procedures by Speciality** — horizontal bar chart rendered with CSS flex/grid.
+   - **TTG Distribution** — vertical bar histogram.
+   - **Procedures by Level** — donut-style ring using CSS `conic-gradient`.
+   - **Procedures by Care Setting** — pill-style progress bars.
+
+3. **Recent Procedures Table** — last 5 added procedures with speciality badge, TTG target, and level.
+
+All styled using the existing CSS variable theme system for full light/dark and colour theme compatibility. Uses only the data returned by the new `/api/dashboard/stats` endpoint.
+
+#### [MODIFY] [index.css](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/index.css)
+
+Add dashboard-specific CSS variables for chart colours (chart-1 through chart-6) in each theme block, plus dashboard styles and animations.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+1. **Backend endpoint test** — `curl http://127.0.0.1:8085/api/dashboard/stats` and verify the JSON response contains the expected keys (`total_procedures`, `total_specialities`, etc.) with numeric values.
+
+### Browser Testing
+1. Navigate to `http://localhost:5173/` — verify Dashboard renders with KPI cards, charts, and recent procedures table.
+2. Navigate to `http://localhost:5173/search` — verify the existing search page works as before.
+3. Toggle light/dark mode and switch colour themes — verify all dashboard elements adapt correctly.
+4. Verify navigation links in the header switch between Dashboard and Search seamlessly.

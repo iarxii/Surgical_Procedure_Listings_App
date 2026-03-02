@@ -434,11 +434,10 @@ Suggested response shape:
 }
 ```
 
-#### 2) Official SCT catalog snapshot (prototype)
+#### 2) Official SCT catalog snapshot (Authorized Procedures List)
 
-- `GET /api/catalog/procedures?specialty=<optional>`
-    - Returns the “official” procedure list snapshot used to determine if a searched procedure exists.
-    - For prototype, this can be seeded from your Excel list and later replaced with SCTSystem’s live catalog.
+- `GET /api/procedures/catalog?specialty=<optional>`
+    - Returns the “official” procedure list snapshot used to power the Authorized Procedures frontend index. This returns directly from internal Master TTGs DB.
 
 #### 3) Addition Requests
 

@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
-export default function SearchInput({ onSearch }) {
-    const [query, setQuery] = useState('');
+export default function SearchInput({ onSearch, externalValue }) {
+    const [query, setQuery] = useState(externalValue || '');
+
+    useEffect(() => {
+        if (externalValue !== undefined) {
+            setQuery(externalValue);
+        }
+    }, [externalValue]);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -20,11 +26,20 @@ export default function SearchInput({ onSearch }) {
             </div>
             <input
                 type="text"
-                className="block w-full pl-12 pr-4 py-4 border-2 border-transparent bg-white shadow-md rounded-2xl leading-5 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 text-lg transition-all hover:bg-gray-50 focus:bg-white"
+                className="block w-full pl-12 pr-12 py-4 border-2 border-transparent bg-white shadow-md rounded-2xl leading-5 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 text-lg transition-all hover:bg-gray-50 focus:bg-white"
                 placeholder="Search for a surgical procedure (e.g. Breast Cancer, Appendectomy)..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
+            {query && (
+                <button
+                    onClick={() => { setQuery(''); onSearch(''); }}
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-indigo-500 focus:outline-none transition-colors"
+                    aria-label="Clear search"
+                >
+                    <X className="h-5 w-5" />
+                </button>
+            )}
         </div>
     );
 }

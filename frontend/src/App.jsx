@@ -2,14 +2,17 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 import SearchInput from './components/SearchInput';
 import DualCodeDisplay from './components/DualCodeDisplay';
+import AuthorizedProcedures from './components/AuthorizedProcedures';
 import { Activity, Clock, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 export default function App() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = useCallback(async (query) => {
+    setSearchQuery(query);
     if (!query || query.length < 3) {
       setResults(null);
       setError(null);
@@ -58,7 +61,7 @@ export default function App() {
         </div>
 
         <div className="transform transition-all duration-500 hover:shadow-xl rounded-2xl max-w-2xl mx-auto relative z-20">
-          <SearchInput onSearch={handleSearch} />
+          <SearchInput onSearch={handleSearch} externalValue={searchQuery} />
         </div>
 
         {error && (
@@ -77,7 +80,7 @@ export default function App() {
           </div>
         )}
 
-        {results && !loading && (
+        {results && !loading ? (
           <div className="mt-16 transition-all duration-700 ease-out animate-in fade-in slide-in-from-bottom-4">
             {primaryProcedure && (
               <div className="bg-white rounded-3xl shadow-lg border border-gray-200 p-8 mb-10 transform transition-all hover:shadow-xl hover:-translate-y-1 duration-300 overflow-hidden relative">
@@ -129,6 +132,8 @@ export default function App() {
               procedures={results.local_procedures}
             />
           </div>
+        ) : (
+          !loading && <AuthorizedProcedures onSelectProcedure={handleSearch} />
         )}
       </main>
     </div>

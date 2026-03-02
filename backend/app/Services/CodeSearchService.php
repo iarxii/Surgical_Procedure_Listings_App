@@ -17,6 +17,13 @@ class CodeSearchService
 
     public function search(string $query, ?string $specialty = null): array
     {
+        // ICD codes are canonically uppercase (e.g. K60.311, C50.9, BA52.0, 2C6Z).
+        // Detect code-like patterns: letter(s)+digit, digit+letter, or alphanumeric with dots/ampersands.
+        // Leave free-text name searches (e.g. "breast cancer") untouched.
+        if (preg_match('/^[a-zA-Z]{1,2}\d|^\d+[a-zA-Z]/', $query)) {
+            $query = strtoupper($query);
+        }
+
         $localResults = $this->searchLocal($query, $specialty);
         $nihResults = $this->searchNih($query);
         $whoResults = $this->searchWho($query);

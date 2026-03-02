@@ -1,0 +1,97 @@
+# Implementation Plan: Surgical Procedure Listing App
+
+This document outlines the step-by-step technical implementation plan for the Surgical Procedure Listing App, separating the work into logical phases for backend, database, and frontend development. Minimum Viable Product (MVP) focus is prioritized.
+
+## 1. Database & Models (Laravel)
+
+### Goal
+Establish the foundational data structures to store procedures, map them to ICD codes, and support TTG (Treatment Time Guarantee) tracking.
+
+### Proposed Changes
+*   **Create Migration: `create_procedures_table`**
+    *   `id` (BigIncrements)
+    *   `speciality` (string)
+    *   `procedure_name` (string)
+    *   `level` (string, nullable)
+    *   `care_icu` (string, nullable)
+    *   `ttg_months` (string, nullable)
+    *   `ttg_days` (integer, nullable)
+    *   `ttg_minimum_70_pct` (integer, nullable)
+    *   `ttg_alert_90_pct` (integer, nullable)
+    *   `timestamps`
+*   **Create Migration: `create_icd_codes_table`**
+    *   `id` (BigIncrements)
+    *   `version` (enum: 'ICD-10-CM', 'ICD-11')
+    *   `code` (string)
+    *   `description` (text)
+    *   `timestamps`
+*   **Create Migration: `create_procedure_icd_mappings_table`**
+    *   `id` (BigIncrements)
+    *   `procedure_id` (foreignId constrained)
+    *   `icd_code_id` (foreignId constrained)
+    *   `mapping_type` (string, default 'Primary')
+    *   `timestamps`
+*   **Create Models:** `Procedure`, `IcdCode`, `ProcedureIcdMapping` with appropriate Eloquent relationships (BelongsToMany via the junction table).
+*   **Create Seeder:** `DatabaseSeeder` to import the core procedures matching the `Master_v4 TTGs.xlsx` definitions.
+
+## 2. API Integrations & Backend Services
+
+### Goal
+Implement the business logic to securely query both the local database and external NIH/WHO APIs.
+
+### Proposed Changes
+*   **Create Service: `WhoIcdAuthService`**
+    *   Handles fetching and caching the OAuth2 token from the WHO API using `Client Credentials`. Caches the token using Laravel's Cache instance for 55 minutes to prevent redundant requests.
+*   **Create Service: `CodeSearchService`**
+    *   Orchestrates searches when a user inputs a term.
+    *   1. Queries the local `procedures` and `icd_codes` tables for direct matches.
+    *   2. Dispatches an HTTP GET to the NIH API (`https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search`).
+    *   3. Dispatches an HTTP GET to the WHO ICD-11 API (using the bearer token from `WhoIcdAuthService`).
+    *   4. Normalizes and aggregates the responses into a clear, unified JSON structure.
+*   **Create API Controller: `SearchController`**
+    *   Endpoint: `GET /api/search`
+    *   Accepts parameters: `query` (string) and optionally `specialty` (string).
+    *   Returns the JSON payload combining matched procedures, TTG SLAs, ICD-10 suggestions, and ICD-11 suggestions.
+*   **Create API Controller: `ProcedureController`**
+    *   Endpoint: `GET /api/procedures/catalog`
+    *   Returns the local catalog (seeded from the Excel sheet) to allow users to browse recognized procedures and specialties.
+
+## 3. Frontend Implementation (React)
+
+### Goal
+Build a responsive, intuitive interface for clinicians to discover procedures and compare codes side-by-side.
+
+### Proposed Changes
+*   **Setup:** Initialize React with Vite and configure TailwindCSS for styling as outlined in the Architecture doc.
+*   **Component: `SearchLayout`**
+    *   The main view. Contains the search bar (`SearchInput`), specialty filters (`SpecialityFilter`), and the results grid.
+*   **Component: `SearchInput`**
+    *   Main text input with debouncing to prevent spamming the backend API.
+*   **Component: `ProcedureResultCard`**
+    *   Displays the matched procedure's name and its TTG SLA metrics (e.g., visually highlighting if a procedure is near its 90% SLA alert limit).
+*   **Component: `DualCodeDisplay`**
+    *   A two-column layout rendering the mapped ICD-10-CM codes on the left and the corresponding ICD-11 codes on the right. Highlights direct database matches versus external API suggestions.
+*   **API Client:** Axios configuration to handle requests to the Laravel backend.
+
+## 4. Verification Plan
+
+### Automated Testing
+
+*   **Backend (Laravel PHPUnit):**
+    *   `test_procedures_can_be_seeded_from_master_file()`: Verifies the seeding logic imports the Master TTG layout correctly into the database schemas.
+    *   `test_who_api_token_caching()`: Mocks the WHO OAuth2 endpoint and asserts the token is cached effectively to prevent rapid-fire requests.
+    *   `test_unified_search_returns_normalized_json()`: Mocks the SearchController and the external HTTP Facades (NIH and WHO APIs) to ensure the backend correctly aggregates disparate code formats into the unified schema.
+*   **Frontend (Vitest / React Testing Library):**
+    *   `SearchInput_debounces_user_input()`: Asserts that typing rapidly only fires the API call after the specified delay (e.g., 300ms).
+    *   `DualCodeDisplay_renders_both_columns_correctly()`: Asserts that providing mock API payload data populates the left (ICD-10) and right (ICD-11) columns properly.
+
+### Manual Verification
+
+1.  **Repository Setup:** Clone the repository, run `composer install` and `npm install`.
+2.  **Database Seeding:** Run `php artisan migrate --seed` and manually check MySQL to ensure TTG targets (like 90 days for certain cancers) are populated.
+3.  **Authentication Test:** Trigger an ICD-11 search in the UI and verify (via Laravel logs or Telescope) that a valid bearer token is successfully retrieved from the WHO OAuth service and subsequently cached.
+4.  **UI Verification:** Type "Breast Cancer" into the UI. Confirm the UI dynamically displays:
+    *   The relevant procedure record from the database.
+    *   C50.9 (ICD-10) listed on the left.
+    *   2C6Z (ICD-11) listed on the right.
+    *   The TTG SLAs specifically stating "90 days" and "3 months".

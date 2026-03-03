@@ -35,7 +35,12 @@ A React + Laravel web application for clinicians and administrators to search, m
 
 ### Mapping Verification System
 - Automated batch verification of local ICD codes against external APIs
-- Data normalization pipeline: splits compound codes, computes category-level main codes, enriches descriptions from NIH
+- Data normalization pipeline handles multiple patterns:
+  - **Compound Codes**: splits on `,` or `;`
+  - **OR Operators**: splits on `/` (e.g., `K85/K86.2` → `K85`, `K86.2`) and strips `.x` wildcards
+  - **Ranges**: expands `-` operators (e.g., `C76-C80` → `C76, C77, C78, C79, C80`)
+  - **Pattern Extraction**: computes category-level main codes
+  - **Enrichment**: fetches clinical descriptions from NIH
 - Per-procedure verification timestamps for both ICD-10 and ICD-11
 
 ### Other

@@ -28,16 +28,20 @@ class NormalizeCodesCommand extends Command
         $this->splitCompoundCodes($dryRun);
 
         $this->newLine();
-        $this->info('Step 2: Removing non-code entries...');
+        $this->info('Step 2: Expanding range codes (e.g. C76-C80)...');
+        $this->expandRangeCodes($dryRun);
+
+        $this->newLine();
+        $this->info('Step 3: Removing non-code entries...');
         $this->removeNonCodes($dryRun);
 
         $this->newLine();
-        $this->info('Step 3: Computing main_code for all entries...');
+        $this->info('Step 4: Computing main_code for all entries...');
         $this->computeMainCodes($dryRun);
 
         if ($enrich) {
             $this->newLine();
-            $this->info('Step 4: Enriching descriptions from NIH API...');
+            $this->info('Step 5: Enriching descriptions from NIH API...');
             $this->enrichDescriptions($dryRun);
         }
 
@@ -58,8 +62,8 @@ class NormalizeCodesCommand extends Command
 
     private function splitCompoundCodes(bool $dryRun): void
     {
-        $compoundPattern = '/[,;]+/';
-        $compounds = IcdCode::where('code', 'REGEXP', '[,;]')->get();
+        $compoundPattern = '/[,;\/]+/';
+        $compounds = IcdCode::where('code', 'REGEXP', '[,;/]')->get();
 
         $splitCount = 0;
         foreach ($compounds as $code) {
@@ -68,6 +72,8 @@ class NormalizeCodesCommand extends Command
 
             foreach ($parts as $part) {
                 $part = trim($part);
+                // Strip .x wildcard suffix (e.g., C34.x → C34)
+                $part = preg_replace('/\.x$/i', '', $part);
                 if (!empty($part) && strlen($part) >= 2 && preg_match('/^[A-Za-z0-9]/', $part)) {
                     $validParts[] = strtoupper($part);
                 }
@@ -101,6 +107,59 @@ class NormalizeCodesCommand extends Command
         }
 
         $this->info("  {$splitCount} compound entries " . ($dryRun ? 'would be' : '') . " split.");
+    }
+
+    private function expandRangeCodes(bool $dryRun): void
+    {
+        // Match patterns like "C76-C80", "K35-K38", "E00 - E07"
+        $rangeCodes = IcdCode::get()->filter(function ($code) {
+            return preg_match('/^([A-Za-z])(\d+)\s*[-–]\s*[A-Za-z]?(\d+)$/', trim($code->code));
+        });
+
+        $expandedCount = 0;
+        foreach ($rangeCodes as $code) {
+            $raw = trim($code->code);
+            if (!preg_match('/^([A-Za-z])(\d+)\s*[-–]\s*[A-Za-z]?(\d+)$/', $raw, $m)) continue;
+
+            $letter = strtoupper($m[1]);
+            $start = intval($m[2]);
+            $end = intval($m[3]);
+
+            if ($end <= $start || ($end - $start) > 50) {
+                $this->warn("  Skip: {$raw} — invalid or too large range");
+                continue;
+            }
+
+            // Build individual codes
+            $expanded = [];
+            $padLen = strlen($m[2]); // preserve leading zeros (e.g. E00)
+            for ($i = $start; $i <= $end; $i++) {
+                $expanded[] = $letter . str_pad($i, $padLen, '0', STR_PAD_LEFT);
+            }
+
+            $procedureIds = $code->procedures()->pluck('procedures.id')->toArray();
+
+            $this->line("  Range: <fg=yellow>{$raw}</> → <fg=green>" . implode(', ', $expanded) . "</>");
+
+            if (!$dryRun) {
+                foreach ($expanded as $newCode) {
+                    $newModel = IcdCode::firstOrCreate(
+                        ['version' => $code->version, 'code' => $newCode],
+                        ['description' => $code->description]
+                    );
+
+                    foreach ($procedureIds as $procId) {
+                        $newModel->procedures()->syncWithoutDetaching([$procId => ['mapping_type' => 'Primary']]);
+                    }
+                }
+
+                $code->procedures()->detach();
+                $code->delete();
+            }
+            $expandedCount++;
+        }
+
+        $this->info("  {$expandedCount} range entries " . ($dryRun ? 'would be' : '') . " expanded.");
     }
 
     private function removeNonCodes(bool $dryRun): void

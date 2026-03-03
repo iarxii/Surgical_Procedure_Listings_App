@@ -292,12 +292,13 @@ This would give a nuanced "mapping quality" indicator instead of a simple green 
 
 Fix the source data quality issues:
 
-1. **Split compound codes** at the database level — create individual `icd_codes` rows
-2. **Remove non-code entries** (e.g., "MULTIPLE - DEPENDS ON SITE")
-3. **Resolve category-level codes** to their most specific billable subcodes
-4. **Backfill descriptions** from the NIH API responses
+1. **Split compound codes** at the database level — create individual `icd_codes` rows. This includes splitting on commas, semicolons, and **slashes (/)**.
+2. **Handle wildcards** — strip `.x` or `.X` trailing characters, as they are syntactically equivalent to the main category code.
+3. **Expand ranges** — expand hyphenated main codes (e.g., `C76-C80`) into their full continuous sequences (`C76, C77, C78, C79, C80`).
+4. **Remove non-code entries** (e.g., "MULTIPLE - DEPENDS ON SITE")
+5. **Backfill descriptions** from the NIH API responses
 
-This could be an artisan command: `procedures:normalize-codes`
+This is implemented via the artisan command: `procedures:normalize-codes`
 
 ---
 

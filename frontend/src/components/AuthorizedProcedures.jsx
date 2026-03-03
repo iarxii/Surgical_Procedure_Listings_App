@@ -1,36 +1,12 @@
-import { useState, useEffect, useMemo } from 'react';
-import axios from 'axios';
+import { useState, useMemo } from 'react';
 import { BookOpen, AlertCircle, CheckCircle2, Filter, ChevronDown } from 'lucide-react';
 
-export default function AuthorizedProcedures({ onSelectProcedure }) {
-    const [procedures, setProcedures] = useState([]);
-    const [specialities, setSpecialities] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export default function AuthorizedProcedures({ onSelectProcedure, catalogData }) {
+    const { procedures = [], specialities = [], loaded = false, error = null } = catalogData || {};
 
     // Filter state
     const [showMappedOnly, setShowMappedOnly] = useState(false);
     const [selectedSpeciality, setSelectedSpeciality] = useState('all');
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [catalogRes, specRes] = await Promise.all([
-                    axios.get('http://127.0.0.1:8085/api/procedures/catalog'),
-                    axios.get('http://127.0.0.1:8085/api/procedures/specialities'),
-                ]);
-                setProcedures(catalogRes.data.data);
-                setSpecialities(specRes.data.data);
-            } catch (err) {
-                console.error("Failed to fetch catalog:", err);
-                setError("Could not load authorized procedures list.");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     // Helper: check verification status
     const isIcd10Verified = (proc) => !!proc.icd10_verified_at;
@@ -65,7 +41,7 @@ export default function AuthorizedProcedures({ onSelectProcedure }) {
         procedures.filter(p => isAnyVerified(p)).length,
         [procedures]);
 
-    if (loading) {
+    if (!loaded) {
         return (
             <div className="mt-12 text-center animate-pulse" style={{ color: 'var(--text-muted)' }}>
                 <div className="h-5 rounded-full w-48 mb-4 mx-auto" style={{ backgroundColor: 'var(--border)' }}></div>

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { ThemeProvider } from './context/ThemeContext';
@@ -65,6 +65,25 @@ function SearchPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Persistent catalog state (fetched once, survives result view ↔ list view)
+  const [catalogData, setCatalogData] = useState({ procedures: [], specialities: [], loaded: false, error: null });
+
+  useEffect(() => {
+    const fetchCatalog = async () => {
+      try {
+        const [catalogRes, specRes] = await Promise.all([
+          axios.get('http://127.0.0.1:8085/api/procedures/catalog'),
+          axios.get('http://127.0.0.1:8085/api/procedures/specialities'),
+        ]);
+        setCatalogData({ procedures: catalogRes.data.data, specialities: specRes.data.data, loaded: true, error: null });
+      } catch (err) {
+        console.error('Failed to fetch catalog:', err);
+        setCatalogData(prev => ({ ...prev, loaded: true, error: 'Could not load authorized procedures list.' }));
+      }
+    };
+    fetchCatalog();
+  }, []);
 
   // Text search from the search bar (existing behavior)
   const handleSearch = useCallback(async (query) => {
@@ -332,7 +351,7 @@ function SearchPage() {
           )}
         </div>
       ) : (
-        !loading && <AuthorizedProcedures onSelectProcedure={handleProcedureSelect} />
+        !loading && <AuthorizedProcedures onSelectProcedure={handleProcedureSelect} catalogData={catalogData} />
       )}
     </main>
   );

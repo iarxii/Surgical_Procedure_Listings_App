@@ -147,7 +147,7 @@ class CodeSearchService
                 'terms' => $query,
                 'sf' => 'code,name',
                 'df' => 'code,name',
-                'maxList' => 10
+                'maxList' => 25
             ]);
 
             if ($response->successful()) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
 export default function DualCodeDisplay({ icd10, icd11, procedures }) {
     const dbMatch = procedures && procedures.length > 0 ? procedures[0] : null;
@@ -28,6 +29,20 @@ export default function DualCodeDisplay({ icd10, icd11, procedures }) {
                             ICD-10-CM
                         </span>
                         NIH Query Results
+                        <a
+                            href="https://clinicaltables.nlm.nih.gov/apidoc/icd10cm/v3/doc.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-auto flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors"
+                            style={{
+                                color: 'var(--accent)',
+                                backgroundColor: 'var(--accent-bg)',
+                                border: '1px solid var(--border-accent)',
+                            }}
+                            title="View NIH ClinicalTables ICD-10-CM API"
+                        >
+                            <ExternalLink className="h-3 w-3" /> NIH API
+                        </a>
                     </h3>
                     <p className="text-sm mt-2 font-medium" style={{ color: 'var(--accent)' }}>
                         Diagnosis codes specifying side or specifics
@@ -132,6 +147,20 @@ export default function DualCodeDisplay({ icd10, icd11, procedures }) {
                             ICD-11
                         </span>
                         WHO Query Results
+                        <a
+                            href="https://icd.who.int/browse/2024-01/mms/en"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-auto flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors"
+                            style={{
+                                color: 'var(--icd11-heading-text)',
+                                backgroundColor: 'var(--icd11-hover)',
+                                border: '1px solid var(--icd11-heading-border)',
+                            }}
+                            title="Browse WHO ICD-11 Classification"
+                        >
+                            <ExternalLink className="h-3 w-3" /> WHO ICD-11
+                        </a>
                     </h3>
                     <p className="text-sm mt-2 font-medium" style={{ color: 'var(--icd11-heading-text)' }}>
                         Base code typically followed by postcoordination

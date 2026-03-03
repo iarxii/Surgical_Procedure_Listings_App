@@ -6,6 +6,7 @@ import SearchInput from './components/SearchInput';
 import DualCodeDisplay from './components/DualCodeDisplay';
 import AuthorizedProcedures from './components/AuthorizedProcedures';
 import Dashboard from './components/Dashboard';
+import Comments from './components/Comments';
 import ThemeToggle from './components/ThemeToggle';
 import { Activity, Clock, AlertTriangle, CheckCircle2, BarChart3, Search } from 'lucide-react';
 
@@ -235,6 +236,10 @@ function SearchPage() {
             icd11={results.icd11_suggestions}
             procedures={results.local_procedures}
           />
+
+          {primaryProcedure && (
+            <Comments procedureName={primaryProcedure.procedure_name} />
+          )}
         </div>
       ) : (
         !loading && <AuthorizedProcedures onSelectProcedure={handleSearch} />

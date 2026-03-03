@@ -98,7 +98,16 @@ git clone <repository-url>
 cd Surgical_Procedure_Listings_App
 ```
 
-### 2. Backend Setup
+### 2. Automated Setup (Windows Recommended)
+Run the `setup.bat` script from the project root. This automates the installation of dependencies, environment setup, database migrations, and ICD code normalization/verification.
+```cmd
+setup.bat
+```
+*(Note: The script will pause after generating the `.env` file so you can configure database and API credentials).*
+
+### 3. Manual Setup (Alternative)
+
+**Backend Setup**
 ```bash
 cd backend
 composer install
@@ -124,20 +133,20 @@ Run migrations and seed the database:
 php artisan migrate --seed
 ```
 
-### 3. Normalize & Verify ICD Codes
+**Normalize & Verify ICD Codes**
 After seeding, run these commands to normalize compound codes, enrich descriptions, and verify mappings:
 ```bash
 php artisan procedures:normalize-codes --enrich
 php artisan procedures:verify-mappings --delay=150
 ```
 
-### 4. Frontend Setup
+**Frontend Setup**
 ```bash
 cd frontend
 npm install
 ```
 
-### 5. Launch Development Servers
+### 4. Launch Development Servers
 **Option A — Use the startup script (recommended):**
 ```bash
 # From the project root
@@ -156,7 +165,7 @@ cd frontend
 npm run dev -- --host
 ```
 
-### 6. Open the App
+### 5. Open the App
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://127.0.0.1:8085
 
@@ -220,6 +229,7 @@ Surgical_Procedure_Listings_App/
 │   ├── mapping_system_analysis.md.resolved
 │   ├── Master_v4 TTGs.xlsx         # Source data
 │   └── planning/                   # Implementation plans
+├── setup.bat                       # Automated setup script
 ├── start_dev.bat                   # Dev server launcher
 └── README.md
 ```

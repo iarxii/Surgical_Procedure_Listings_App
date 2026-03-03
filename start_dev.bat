@@ -5,6 +5,9 @@ REM  Starts the backend API and frontend dev server in separate
 REM  terminal windows.
 REM ============================================================
 
+REM Set console to UTF-8 to display box-drawing characters correctly
+chcp 65001 >nul
+
 echo.
 echo  ╔══════════════════════════════════════════════════════╗
 echo  ║   Surgical Procedure Listing App — Dev Launcher      ║
@@ -19,7 +22,8 @@ echo  [1/2] Starting Laravel API server (port 8085)...
 start "Backend API — Laravel (port 8085)" cmd /k "cd /d %PROJECT_DIR%backend && php artisan serve --port=8085"
 
 REM Small delay to let backend start first
-timeout /t 2 /nobreak >nul
+REM Using explicit Windows timeout to avoid conflict with Git Bash's GNU timeout
+%SystemRoot%\System32\timeout.exe /t 2 /nobreak >nul
 
 REM ── Frontend Dev Server ──
 echo  [2/2] Starting Vite dev server...

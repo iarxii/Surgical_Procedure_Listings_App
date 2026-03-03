@@ -35,7 +35,14 @@ class CommentController extends Controller
             'procedure_name' => 'required|string|max:255',
             'author'         => 'required|string|max:100',
             'body'           => 'required|string|max:2000',
+            'tags'           => 'nullable|array|max:10',
+            'tags.*'         => 'string|max:50',
+            'mentions'       => 'nullable|array|max:20',
+            'mentions.*'     => 'string|max:100',
         ]);
+
+        $validated['tags'] = $validated['tags'] ?? [];
+        $validated['mentions'] = $validated['mentions'] ?? [];
 
         $comment = Comment::create($validated);
 

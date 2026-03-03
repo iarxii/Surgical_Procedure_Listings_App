@@ -1344,3 +1344,191 @@ a {
   font-weight: 500;
   margin-bottom: 1rem;
 }
+
+/* --- Tags input --- */
+.comments-tags-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.comments-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  min-height: 2.5rem;
+  align-items: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comments-tags-container:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.comments-tag-input {
+  flex: 1;
+  min-width: 100px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  padding: 0.1rem 0;
+}
+
+.comments-tag-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Tag badge chip */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  white-space: nowrap;
+  animation: badgePop 0.2s ease-out;
+}
+
+.tag-badge-sm {
+  padding: 0.1rem 0.45rem;
+  font-size: 0.7rem;
+  gap: 0.2rem;
+}
+
+.tag-badge-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.1rem;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.tag-badge-remove:hover {
+  opacity: 1;
+}
+
+@keyframes badgePop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tag suggestions dropdown */
+.tag-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px var(--shadow-lg);
+  z-index: 30;
+  overflow: hidden;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.tag-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.1s;
+}
+
+.tag-suggestion-item:hover {
+  background-color: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* Comment tags row */
+.comment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.35rem;
+}
+
+/* --- @Mention badges --- */
+.comments-textarea-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-mentions-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-top: none;
+  margin-top: -1px;
+}
+
+.mention-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-bg), var(--accent-bg-hover));
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  animation: badgePop 0.2s ease-out;
+}
+
+.mention-badge-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  vertical-align: baseline;
+  margin: 0 0.1rem;
+}

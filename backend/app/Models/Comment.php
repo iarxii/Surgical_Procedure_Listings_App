@@ -10,10 +10,14 @@ class Comment extends Model
         'procedure_name',
         'author',
         'body',
+        'tags',
+        'mentions',
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'tags'       => 'array',
+        'mentions'   => 'array',
     ];
 }

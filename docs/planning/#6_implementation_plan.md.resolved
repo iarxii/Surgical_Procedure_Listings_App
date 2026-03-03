@@ -1,0 +1,130 @@
+# Refactoring: Code-Based Search + Primary Match Relocation
+
+## Background
+
+**Problem 1 — Name-based search**: When selecting from the Authorized List, we search external APIs with the procedure name. APIs are designed for **ICD code** search — names don't always correspond 1:1.
+
+**Problem 2 — Primary Match buried**: The "Primary Match (Internal DB)" card is nested inside the ICD-10 column of [DualCodeDisplay](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/DualCodeDisplay.jsx#4-216), making it hard to spot and semantically misplaced.
+
+**Fix**: Use ICD codes (main code = first 3 chars) as the primary search parameter, and elevate the Primary Match card to a standalone position below the search bar.
+
+---
+
+## Proposed Changes
+
+### 1. Data Layer — Normalize Codes
+
+#### [NEW] Migration: add `main_code` to `icd_codes`
+
+| Column | Type | Purpose |
+|---|---|---|
+| `main_code` | `string(5)`, nullable | Category-level code, e.g. `C50` from `C50.911` |
+
+#### [NEW] `NormalizeCodesCommand.php`
+
+`php artisan procedures:normalize-codes`:
+1. Splits compound entries (`"K04.7, K04.6, K12.2"`) into individual `icd_codes` rows
+2. Computes `main_code` (everything before the decimal, or entire code if no decimal)
+3. Removes non-code entries like `"MULTIPLE - DEPENDS ON SITE"`
+4. Enriches descriptions from the NIH API
+
+---
+
+### 2. Backend — Code-Based Search Endpoint
+
+#### [MODIFY] [CodeSearchService.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Services/CodeSearchService.php)
+
+Add `searchByProcedure(Procedure $procedure)`:
+- **Strategy 1**: Search NIH/WHO by each **main code** (e.g., `C50`) → all sub-codes
+- **Strategy 2**: Search by each **full sub-code** (e.g., `C50.9`) → exact matches
+- **Strategy 3**: Search by **procedure name** → supplementary results
+
+#### [MODIFY] [SearchController.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Http/Controllers/SearchController.php)
+
+Add route handler for `GET /api/search/by-procedure/{id}`
+
+#### [NEW] Route: `GET /api/search/by-procedure/{id}` in [api.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/routes/api.php)
+
+---
+
+### 3. Frontend — Primary Match Relocation + Code-Based Search
+
+#### [MODIFY] [App.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/App.jsx)
+
+**Primary Match card relocated here** — rendered as a standalone section between the search bar and the DualCodeDisplay columns:
+
+```
+┌─────────────────────────────────────────────┐
+│             Search Input Bar                │
+└─────────────────────────────────────────────┘
+               ↓ (if local match)
+┌─────────────────────────────────────────────┐
+│  ✦ Primary Match (Internal DB)              │
+│    Speciality: Radiation Oncology           │
+│    Procedure: Breast Cancer                 │
+│    ICD-10: C50.9   TTG: 90 Days             │
+│    Verified: ✓ ICD-10                       │
+└─────────────────────────────────────────────┘
+               ↓
+┌────────────────────┐  ┌────────────────────┐
+│  NIH Query Results │  │  WHO Query Results │
+│  (ICD-10-CM)       │  │  (ICD-11)          │
+│  API suggestions   │  │  API suggestions   │
+│  only              │  │  only              │
+└────────────────────┘  └────────────────────┘
+```
+
+- Add `handleProcedureSelect(proc)` — calls `GET /api/search/by-procedure/{id}`
+- Keep `handleSearch(text)` — unchanged for manual text search
+- Render Primary Match card for **both** flows (Authorized List click OR text search that finds a local match)
+
+#### [MODIFY] [AuthorizedProcedures.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/AuthorizedProcedures.jsx)
+
+Change callback from `onSelectProcedure(proc.procedure_name)` to `onSelectProcedure(proc)` (pass full procedure object)
+
+#### [MODIFY] [DualCodeDisplay.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/DualCodeDisplay.jsx)
+
+- **Remove** the Primary Match card from the ICD-10 column (lines 53–82)
+- Both columns now show only external API suggestions
+
+---
+
+## Data Flow After Refactoring
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant AP as AuthorizedProcedures
+    participant SP as SearchPage (App.jsx)
+    participant API as Backend
+    participant NIH as NIH API
+    participant WHO as WHO API
+
+    U->>AP: Clicks "Breast Cancer" card
+    AP->>SP: onSelectProcedure(fullProcObject)
+    SP->>API: GET /api/search/by-procedure/1
+    API->>API: Load procedure → main code "C50" + sub-code "C50.9"
+    par By code
+        API->>NIH: terms=C50 → all C50.x subcodes
+        API->>WHO: q=C50 → ICD-11 matches
+    and By name (supplementary)
+        API->>NIH: terms=Breast Cancer
+        API->>WHO: q=Breast Cancer
+    end
+    API->>SP: { procedure, local_codes, icd10_suggestions, icd11_suggestions }
+    SP->>U: Primary Match card (standalone) + DualCodeDisplay (API results only)
+```
+
+---
+
+## Verification Plan
+
+### Automated
+1. Run `procedures:normalize-codes` — confirm compound codes split, `main_code` populated
+2. `GET /api/search/by-procedure/1` — confirm structured code-based response
+
+### Browser
+3. Click "Breast Cancer" → Primary Match card appears below search bar with ICD-10 badge
+4. NIH/WHO columns show only external API suggestions (no Primary Match in NIH column)
+5. Type "breast cancer" in search bar → same behavior if local match found
+6. Click "Retinal Cancer" (no local codes) → no Primary Match card, only API results

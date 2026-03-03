@@ -59,13 +59,14 @@ function AppHeader() {
   );
 }
 
-/* ─────────── Search Page (original content) ─────────── */
+/* ─────────── Search Page (refactored with code-based search) ─────────── */
 function SearchPage() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Text search from the search bar (existing behavior)
   const handleSearch = useCallback(async (query) => {
     setSearchQuery(query);
     if (!query || query.length < 3) {
@@ -77,10 +78,26 @@ function SearchPage() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://127.0.0.1:8085/api/search?query=${query}`);
+      const response = await axios.get(`http://127.0.0.1:8085/api/search?query=${encodeURIComponent(query)}`);
       setResults(response.data);
     } catch (err) {
       console.error("Search failed:", err);
+      setError("Failed to fetch coding data. Ensure the backend is running.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  // Code-based search from Authorized List click
+  const handleProcedureSelect = useCallback(async (procedure) => {
+    setSearchQuery(procedure.procedure_name);
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(`http://127.0.0.1:8085/api/search/by-procedure/${procedure.id}`);
+      setResults(response.data);
+    } catch (err) {
+      console.error("Procedure search failed:", err);
       setError("Failed to fetch coding data. Ensure the backend is running.");
     } finally {
       setLoading(false);
@@ -137,6 +154,7 @@ function SearchPage() {
 
       {results && !loading ? (
         <div className="mt-16 transition-all duration-700 ease-out animate-in fade-in slide-in-from-bottom-4">
+          {/* ── Standalone Primary Match Card ── */}
           {primaryProcedure && (
             <div
               className="rounded-3xl shadow-lg p-8 mb-10 transform transition-all hover:shadow-xl hover:-translate-y-1 duration-300 overflow-hidden relative"
@@ -148,19 +166,68 @@ function SearchPage() {
               <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full -z-10 opacity-50" style={{ backgroundColor: 'var(--accent-bg)' }}></div>
               <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
                 <div className="flex-1">
-                  <span
-                    className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm mb-4"
-                    style={{
-                      backgroundColor: 'var(--accent-bg)',
-                      color: 'var(--accent)',
-                      border: '1px solid var(--border-accent)',
-                    }}
-                  >
-                    {primaryProcedure.speciality}
-                  </span>
+                  <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    <span
+                      className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm"
+                      style={{
+                        backgroundColor: 'var(--accent-bg)',
+                        color: 'var(--accent)',
+                        border: '1px solid var(--border-accent)',
+                      }}
+                    >
+                      {primaryProcedure.speciality}
+                    </span>
+                    {primaryProcedure.icd10_verified_at && (
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold tracking-wider"
+                        style={{ backgroundColor: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
+                        <CheckCircle2 className="h-3 w-3 mr-1" /> ICD-10 ✓
+                      </span>
+                    )}
+                    {primaryProcedure.icd11_verified_at && (
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold tracking-wider"
+                        style={{ backgroundColor: 'var(--icd11-hover)', color: 'var(--icd11-heading-text)', border: '1px solid var(--icd11-heading-border)' }}>
+                        <CheckCircle2 className="h-3 w-3 mr-1" /> ICD-11 ✓
+                      </span>
+                    )}
+                  </div>
                   <h2 className="text-3xl font-black leading-tight" style={{ color: 'var(--text-primary)' }}>
                     {primaryProcedure.procedure_name}
                   </h2>
+
+                  {/* Local ICD Codes - Primary Match */}
+                  {primaryProcedure.icd_codes && primaryProcedure.icd_codes.length > 0 && (
+                    <div
+                      className="mt-5 rounded-xl p-4 shadow-sm"
+                      style={{
+                        backgroundColor: 'var(--icd10-bg)',
+                        border: '1px solid var(--icd10-border)',
+                      }}
+                    >
+                      <h4 className="text-xs font-bold uppercase tracking-widest mb-3 flex items-center" style={{ color: 'var(--icd10-text)' }}>
+                        <span className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{ backgroundColor: 'var(--success-text)' }}></span>
+                        Local ICD Codes (Internal DB)
+                      </h4>
+                      <div className="flex flex-wrap gap-3">
+                        {primaryProcedure.icd_codes.map(code => (
+                          <div key={code.id} className="flex items-center gap-2">
+                            <span
+                              className="font-mono text-base font-extrabold px-2.5 py-1 rounded shadow-sm"
+                              style={{
+                                color: 'var(--icd10-text)',
+                                backgroundColor: 'color-mix(in srgb, var(--icd10-bg) 70%, var(--bg-card))',
+                              }}
+                            >
+                              {code.code}
+                            </span>
+                            {code.description && code.description !== 'Imported from Master TTGs' && (
+                              <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{code.description}</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <div
                     className="mt-4 flex flex-wrap gap-4 text-sm p-3 rounded-lg inline-flex"
                     style={{
@@ -171,7 +238,7 @@ function SearchPage() {
                   >
                     {primaryProcedure.level && (
                       <span className="flex items-center">
-                        <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Level:</strong> {primaryProcedure.level}
+                        <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Level of Care:</strong> {primaryProcedure.level}
                       </span>
                     )}
                     {primaryProcedure.level && primaryProcedure.care_icu && (
@@ -179,7 +246,7 @@ function SearchPage() {
                     )}
                     {primaryProcedure.care_icu && (
                       <span className="flex items-center">
-                        <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Setting:</strong> {primaryProcedure.care_icu}
+                        <strong className="mr-1" style={{ color: 'var(--text-primary)' }}>Post-Care Setting:</strong> {primaryProcedure.care_icu}
                       </span>
                     )}
                   </div>
@@ -228,6 +295,29 @@ function SearchPage() {
                   )}
                 </div>
               </div>
+
+              {/* Search Strategies Indicator */}
+              {results.search_strategies && (
+                <div className="mt-4 pt-4 flex flex-wrap gap-2" style={{ borderTop: '1px solid var(--border)' }}>
+                  <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                    Searched by:
+                  </span>
+                  {results.search_strategies.main_codes?.map(code => (
+                    <span key={code} className="text-xs font-mono font-bold px-2 py-0.5 rounded"
+                      style={{ backgroundColor: 'var(--accent-bg)', color: 'var(--accent)', border: '1px solid var(--border-accent)' }}>
+                      {code}
+                    </span>
+                  ))}
+                  {results.search_strategies.sub_codes?.filter(s =>
+                    !results.search_strategies.main_codes?.includes(s.toUpperCase())
+                  ).map(code => (
+                    <span key={code} className="text-xs font-mono font-bold px-2 py-0.5 rounded"
+                      style={{ backgroundColor: 'var(--icd10-bg)', color: 'var(--icd10-text)', border: '1px solid var(--icd10-border)' }}>
+                      {code}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
@@ -242,7 +332,7 @@ function SearchPage() {
           )}
         </div>
       ) : (
-        !loading && <AuthorizedProcedures onSelectProcedure={handleSearch} />
+        !loading && <AuthorizedProcedures onSelectProcedure={handleProcedureSelect} />
       )}
     </main>
   );

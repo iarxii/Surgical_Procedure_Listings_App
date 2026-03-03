@@ -10,13 +10,25 @@ class ProcedureController extends Controller
     {
         $specialty = $request->query('specialty');
         
-        $query = \App\Models\Procedure::with('icdCodes');
+        $query = \App\Models\Procedure::with('icdCodes')->withCount('icdCodes');
         if ($specialty) {
             $query->where('speciality', $specialty);
         }
         
         return response()->json([
             'data' => $query->get()
+        ]);
+    }
+
+    public function specialities(): \Illuminate\Http\JsonResponse
+    {
+        $specialities = \App\Models\Procedure::distinct()
+            ->whereNotNull('speciality')
+            ->orderBy('speciality')
+            ->pluck('speciality');
+
+        return response()->json([
+            'data' => $specialities
         ]);
     }
 }

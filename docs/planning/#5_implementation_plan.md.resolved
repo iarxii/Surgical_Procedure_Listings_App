@@ -1,0 +1,93 @@
+# Redefine "Mapped" — External API Verification System
+
+## Background
+
+Currently, "Mapped" simply means the procedure has rows in the local `procedure_icd_mappings` table. The new definition: **a procedure is "Mapped" when its ICD codes have been verified to exist in the external APIs** — NIH ClinicalTables (ICD-10-CM) and/or WHO ICD-11. The system should track *which* API(s) confirmed the mapping and when.
+
+## Proposed Changes
+
+### 1. Database — New Verification Columns on [procedures](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/IcdCode.php#11-17)
+
+#### [NEW] Migration: `add_mapping_verification_to_procedures_table`
+
+Add three columns directly to the [procedures](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/IcdCode.php#11-17) table:
+
+| Column | Type | Default | Purpose |
+|---|---|---|---|
+| `icd10_verified_at` | `timestamp` | `null` | When the NIH API last confirmed this procedure's ICD-10-CM code(s) |
+| `icd11_verified_at` | `timestamp` | `null` | When the WHO API last confirmed this procedure's ICD-11 code(s) |
+| `mapping_verified_at` | `timestamp` | `null` | When the last verification run touched this procedure (even if no match) |
+
+> [!NOTE]
+> **Why on [procedures](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/IcdCode.php#11-17) and not on `procedure_icd_mappings`?** The verification is a per-procedure status (did ANY of this procedure's ICD codes pass API validation). Storing it on the procedure row avoids extra joins and makes the catalog query trivial.
+
+---
+
+### 2. Backend — Verification Service
+
+#### [NEW] `MappingVerificationService.php`
+
+A service class that, for a given [Procedure](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/Procedure.php#7-21):
+
+1. **Collects** its local ICD codes from the pivot (grouped by `version`).
+2. **ICD-10-CM check**: For each ICD-10-CM code, calls the NIH ClinicalTables API (`terms=<code>&sf=code&df=code`) and checks if the exact code appears in the response.
+3. **ICD-11 check**: For each ICD-11 code, calls the WHO ICD-11 search API (`q=<code>`) and checks if `theCode` matches.
+4. **Updates** `icd10_verified_at` / `icd11_verified_at` on the procedure if any code of that version was confirmed.
+5. **Always updates** `mapping_verified_at` to record that the check ran.
+
+The service reuses the existing [WhoIcdAuthService](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Services/WhoIcdAuthService.php#9-44) for WHO tokens and follows the same HTTP patterns as [CodeSearchService](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Services/CodeSearchService.php#9-130).
+
+---
+
+### 3. Backend — Artisan Command
+
+#### [NEW] `VerifyMappingsCommand.php`
+
+`php artisan procedures:verify-mappings`
+
+- Iterates over all procedures (or a `--specialty=X` subset).
+- Calls `MappingVerificationService` for each.
+- Outputs a progress bar and summary table (verified/failed counts per API).
+- Can be manually run or scheduled via Laravel's scheduler.
+- Includes rate-limit delays between API calls to avoid throttling.
+
+---
+
+### 4. Backend — Update Catalog Endpoint
+
+#### [MODIFY] [ProcedureController.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Http/Controllers/ProcedureController.php)
+
+- Include the new verification timestamp columns in the catalog response (they're on the model, so they return automatically once the migration runs).
+
+#### [MODIFY] [Procedure.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Models/Procedure.php)
+
+- Add `icd10_verified_at`, `icd11_verified_at`, `mapping_verified_at` to `$fillable` and `$casts` (as `datetime`).
+
+---
+
+### 5. Frontend — Granular Verification Badges
+
+#### [MODIFY] [AuthorizedProcedures.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/AuthorizedProcedures.jsx)
+
+Replace the generic "MAPPED" badge with **granular verification badges**:
+
+- **ICD-10 ✓** badge (green) — shown when `icd10_verified_at` is not null
+- **ICD-11 ✓** badge (teal) — shown when `icd11_verified_at` is not null
+- Cards with **both** verified show both badges
+- Cards with **neither** verified show no badge (unmapped)
+- The "Mapped Only" filter now checks `icd10_verified_at || icd11_verified_at`
+- Card accent styling: green left bar if ICD-10 verified, teal if ICD-11, gradient if both
+
+---
+
+## Verification Plan
+
+### Automated
+1. Run migration: `php artisan migrate`
+2. Run verification command: `php artisan procedures:verify-mappings`
+3. Check database: procedures should have populated `icd10_verified_at` / `icd11_verified_at`
+
+### Browser
+4. Navigate to `/search`, verify ICD-10/ICD-11 badges appear correctly on verified procedure cards
+5. Test "Mapped Only" filter uses the new verification status
+6. Test speciality dropdown still works in combination

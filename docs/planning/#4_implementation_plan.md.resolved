@@ -1,0 +1,44 @@
+# Enhance Authorized Procedure List — Visual Mapping Indicators & Filters
+
+Add visual prominence to procedures with successful ICD code mappings (a "Mapped" badge and enhanced card styling), plus two filter controls: a toggle for mapped-only procedures and a speciality dropdown.
+
+## Proposed Changes
+
+### Backend — Procedure Catalog API
+
+#### [MODIFY] [ProcedureController.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Http/Controllers/ProcedureController.php)
+
+- Add a `withCount('icdCodes')` call so each procedure includes an `icd_codes_count` integer — this lets the frontend efficiently determine mapping status without parsing the nested array.
+- Add a new `specialities()` method returning the distinct speciality values for the dropdown, registered at `GET /api/procedures/specialities`.
+
+#### [MODIFY] [api.php](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/routes/api.php)
+
+- Register the new route: `Route::get('/procedures/specialities', ...)`.
+
+---
+
+### Frontend — AuthorizedProcedures Component
+
+#### [MODIFY] [AuthorizedProcedures.jsx](file:///c:/AppDev/Surgical_Procedure_Listings_App/frontend/src/components/AuthorizedProcedures.jsx)
+
+1. **State**: Add `showMappedOnly` (boolean, default `false`), `selectedSpeciality` (string, default `'all'`), and `specialities` (array).
+2. **Data fetching**: Fetch specialities from the new API endpoint on mount.
+3. **Filter bar** (between the header and procedure grid):
+   - A pill toggle for "Mapped Only" that filters to procedures where `icd_codes_count > 0`.
+   - A styled `<select>` dropdown for speciality (`All Specialities` + each distinct value).
+4. **Mapped procedure visual treatment**:
+   - A small ✓ "Mapped" badge (using `--success-*` theme vars) displayed on each card whose `icd_codes_count > 0`.
+   - Enhanced card border using `--success-border` and subtle left-accent bar for mapped cards.
+5. **Count badge**: Show filtered count vs total, e.g. "12 / 45 Procedures".
+
+---
+
+## Verification Plan
+
+### Browser Verification
+1. Run the dev frontend (`cd frontend && npm run dev -- --host`) and backend (`cd backend && php artisan serve --port=8085`), which are already running.
+2. Navigate to the Search page (`/search`) and visually inspect:
+   - Mapped procedures display a green "Mapped" badge and have a more pronounced card style.
+   - The "Mapped Only" toggle filters the list to show only mapped procedures.
+   - The speciality dropdown filters by speciality and the procedure count updates accordingly.
+   - Combining both filters works correctly.

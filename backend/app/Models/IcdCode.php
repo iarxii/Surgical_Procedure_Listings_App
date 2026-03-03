@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class IcdCode extends Model
 {
-    protected $fillable = ['version', 'code', 'description'];
+    protected $fillable = ['version', 'code', 'main_code', 'description'];
 
     public function procedures()
     {

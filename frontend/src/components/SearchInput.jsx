@@ -1,16 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Search, X } from 'lucide-react';
 
 export default function SearchInput({ onSearch, externalValue }) {
     const [query, setQuery] = useState(externalValue || '');
+    const skipDebounceRef = useRef(false);
 
     useEffect(() => {
-        if (externalValue !== undefined) {
+        if (externalValue !== undefined && externalValue !== query) {
+            skipDebounceRef.current = true;
             setQuery(externalValue);
         }
     }, [externalValue]);
 
     useEffect(() => {
+        // Skip the debounce if the query was set externally (e.g. from procedure selection)
+        if (skipDebounceRef.current) {
+            skipDebounceRef.current = false;
+            return;
+        }
+
         const timeoutId = setTimeout(() => {
             if (query.length >= 3 || query.length === 0) {
                 onSearch(query);

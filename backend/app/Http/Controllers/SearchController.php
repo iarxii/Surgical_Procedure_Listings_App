@@ -26,4 +26,17 @@ class SearchController extends Controller
 
         return response()->json($results);
     }
+
+    public function searchByProcedure(int $id): \Illuminate\Http\JsonResponse
+    {
+        $procedure = \App\Models\Procedure::with('icdCodes')->find($id);
+
+        if (!$procedure) {
+            return response()->json(['error' => 'Procedure not found'], 404);
+        }
+
+        $results = $this->searchService->searchByProcedure($procedure);
+
+        return response()->json($results);
+    }
 }

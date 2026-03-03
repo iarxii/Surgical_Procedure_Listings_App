@@ -12,7 +12,9 @@ Route::get('/user', function (Request $request) {
 });
 
 Route::get('/search', [SearchController::class, 'search']);
+Route::get('/search/by-procedure/{id}', [SearchController::class, 'searchByProcedure']);
 Route::get('/procedures/catalog', [ProcedureController::class, 'catalog']);
+Route::get('/procedures/specialities', [ProcedureController::class, 'specialities']);
 Route::get('/dashboard/stats', [DashboardController::class, 'stats']);
 Route::get('/comments', [CommentController::class, 'index']);
 Route::post('/comments', [CommentController::class, 'store']);

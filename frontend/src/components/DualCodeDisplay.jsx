@@ -2,7 +2,6 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 
 export default function DualCodeDisplay({ icd10, icd11, procedures }) {
-    const dbMatch = procedures && procedures.length > 0 ? procedures[0] : null;
 
     return (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -50,37 +49,6 @@ export default function DualCodeDisplay({ icd10, icd11, procedures }) {
                 </div>
 
                 <div className="p-6 flex-1 overflow-y-auto">
-                    {dbMatch && dbMatch.icd_codes && dbMatch.icd_codes.length > 0 && (
-                        <div
-                            className="mb-8 rounded-xl p-5 shadow-sm transition-all hover:shadow-md"
-                            style={{
-                                backgroundColor: 'var(--icd10-bg)',
-                                border: '1px solid var(--icd10-border)',
-                            }}
-                        >
-                            <h4 className="text-xs font-bold uppercase tracking-widest mb-3 flex items-center" style={{ color: 'var(--icd10-text)' }}>
-                                <span className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{ backgroundColor: 'var(--success-text)' }}></span>
-                                Primary Match (Internal DB)
-                            </h4>
-                            {dbMatch.icd_codes.map(code => (
-                                <div key={code.id} className="flex justify-between items-start">
-                                    <span
-                                        className="font-mono text-xl font-extrabold px-2 py-1 rounded shadow-sm"
-                                        style={{
-                                            color: 'var(--icd10-text)',
-                                            backgroundColor: 'color-mix(in srgb, var(--icd10-bg) 70%, var(--bg-card))',
-                                        }}
-                                    >
-                                        {code.code}
-                                    </span>
-                                    <span className="text-sm flex-1 ml-4 mt-1 leading-snug" style={{ color: 'var(--icd10-text)' }}>
-                                        {code.description}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-
                     <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--text-muted)' }}>
                         NIH API Suggestions
                     </h4>

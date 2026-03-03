@@ -37,6 +37,97 @@ class CodeSearchService
         ];
     }
 
+    /**
+     * Search by procedure: uses ICD codes as primary search parameters.
+     */
+    public function searchByProcedure(Procedure $procedure): array
+    {
+        $codes = $procedure->icdCodes;
+
+        // Get unique main codes and individual sub-codes
+        $mainCodes = $codes->pluck('main_code')->unique()->filter()->values()->toArray();
+        $subCodes = $codes->pluck('code')->unique()->filter()->values()->toArray();
+
+        // Collect all ICD-10 and ICD-11 results
+        $icd10Results = [];
+        $icd11Results = [];
+        $seenIcd10Codes = [];
+        $seenIcd11Codes = [];
+
+        // Strategy 1: Search by main code (category-level, e.g. "C50")
+        foreach ($mainCodes as $mainCode) {
+            $nihHits = $this->searchNih($mainCode);
+            foreach ($nihHits as $hit) {
+                if (!isset($seenIcd10Codes[$hit['code']])) {
+                    $hit['match_source'] = 'code';
+                    $hit['matched_query'] = $mainCode;
+                    $icd10Results[] = $hit;
+                    $seenIcd10Codes[$hit['code']] = true;
+                }
+            }
+
+            $whoHits = $this->searchWho($mainCode);
+            foreach ($whoHits as $hit) {
+                if (!empty($hit['code']) && !isset($seenIcd11Codes[$hit['code']])) {
+                    $hit['match_source'] = 'code';
+                    $hit['matched_query'] = $mainCode;
+                    $icd11Results[] = $hit;
+                    $seenIcd11Codes[$hit['code']] = true;
+                }
+            }
+        }
+
+        // Strategy 2: Search by full sub-code (e.g. "C50.9") for precision
+        foreach ($subCodes as $subCode) {
+            // Skip if same as main code (already searched)
+            if (in_array(strtoupper($subCode), array_map('strtoupper', $mainCodes))) continue;
+
+            $nihHits = $this->searchNih($subCode);
+            foreach ($nihHits as $hit) {
+                if (!isset($seenIcd10Codes[$hit['code']])) {
+                    $hit['match_source'] = 'sub_code';
+                    $hit['matched_query'] = $subCode;
+                    $icd10Results[] = $hit;
+                    $seenIcd10Codes[$hit['code']] = true;
+                }
+            }
+        }
+
+        // Strategy 3: Search by procedure name (supplementary)
+        $nihByName = $this->searchNih($procedure->procedure_name);
+        foreach ($nihByName as $hit) {
+            if (!isset($seenIcd10Codes[$hit['code']])) {
+                $hit['match_source'] = 'name';
+                $hit['matched_query'] = $procedure->procedure_name;
+                $icd10Results[] = $hit;
+                $seenIcd10Codes[$hit['code']] = true;
+            }
+        }
+
+        $whoByName = $this->searchWho($procedure->procedure_name);
+        foreach ($whoByName as $hit) {
+            if (!empty($hit['code']) && !isset($seenIcd11Codes[$hit['code']])) {
+                $hit['match_source'] = 'name';
+                $hit['matched_query'] = $procedure->procedure_name;
+                $icd11Results[] = $hit;
+                $seenIcd11Codes[$hit['code']] = true;
+            }
+        }
+
+        return [
+            'query' => $procedure->procedure_name,
+            'procedure' => $procedure,
+            'local_procedures' => [$procedure],
+            'local_codes' => $codes,
+            'search_strategies' => [
+                'main_codes' => $mainCodes,
+                'sub_codes' => $subCodes,
+             ],
+            'icd10_suggestions' => $icd10Results,
+            'icd11_suggestions' => $icd11Results,
+        ];
+    }
+
     private function searchLocal(string $query, ?string $specialty)
     {
         $q = Procedure::with('icdCodes')

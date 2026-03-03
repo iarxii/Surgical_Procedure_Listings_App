@@ -1,0 +1,336 @@
+# ICD Code Mapping System — Technical Deep-Dive
+
+## Table of Contents
+1. [Architecture Overview](#1-architecture-overview)
+2. [Data Pipeline](#2-data-pipeline)
+3. [External APIs — Capabilities & Constraints](#3-external-apis--capabilities--constraints)
+4. [Current Verification Logic](#4-current-verification-logic)
+5. [Known Data Quality Issues](#5-known-data-quality-issues)
+6. [Accuracy Constraints](#6-accuracy-constraints)
+7. [Improvement Strategies](#7-improvement-strategies)
+
+---
+
+## 1. Architecture Overview
+
+```mermaid
+flowchart TD
+    A["Master TTGs Excel"] -->|Seeder| B["procedures table"]
+    A -->|"ICD-10 column"| C["icd_codes table"]
+    B <-->|"procedure_icd_mappings"| C
+    B -->|"Verify Command"| D["MappingVerificationService"]
+    D -->|"Code lookup"| E["NIH ClinicalTables API\n(ICD-10-CM)"]
+    D -->|"Code lookup"| F["WHO ICD-11 API"]
+    D -->|"Updates timestamps"| B
+    G["User Search"] -->|"Real-time"| H["CodeSearchService"]
+    H -->|"Live search"| E
+    H -->|"Live search"| F
+    H -->|"Local match"| B
+```
+
+**Three distinct data flows:**
+
+| Flow | Purpose | When it runs |
+|---|---|---|
+| **Import** (Seeder) | Loads procedures + ICD-10 codes from Excel JSON | `php artisan db:seed` (one-time) |
+| **Verification** (Artisan Command) | Checks local ICD codes against external APIs | `php artisan procedures:verify-mappings` (on-demand) |
+| **Live Search** (CodeSearchService) | Real-time API search when user types a query | Per user search request |
+
+> [!IMPORTANT]
+> The **verification** and **live search** are independent systems. Verification checks if *locally-stored* codes exist in the APIs. Live search queries the APIs in real-time with the user's search term. A procedure can fail verification but still return results via live search — this is the discrepancy the user observes.
+
+---
+
+## 2. Data Pipeline
+
+### 2.1 Source Data ([master_ttgs.json](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/database/seeders/master_ttgs.json))
+- Extracted from `Master_v4 TTGs.xlsx`
+- Contains **258 procedures** across multiple specialities
+- Has an `ICD -10` column with ICD-10-CM codes
+
+**What the source data provides:**
+- ✅ Procedure names and speciality classifications
+- ✅ ICD-10-CM codes (most procedures)
+- ❌ No ICD-11 codes at all — the Excel only has ICD-10
+- ❌ No ICD code descriptions — all imported as `"Imported from Master TTGs"`
+
+### 2.2 Database Schema
+
+```mermaid
+erDiagram
+    procedures {
+        id int PK
+        speciality string
+        procedure_name string
+        level string
+        care_icu string
+        ttg_months string
+        ttg_days int
+        icd10_verified_at timestamp "NULL = not verified"
+        icd11_verified_at timestamp "NULL = not verified"
+        mapping_verified_at timestamp "Last check run"
+    }
+    icd_codes {
+        id int PK
+        version enum "ICD-10-CM or ICD-11"
+        code string "Raw from Excel"
+        description text
+    }
+    procedure_icd_mappings {
+        procedure_id int FK
+        icd_code_id int FK
+        mapping_type string "Primary"
+    }
+    procedures ||--o{ procedure_icd_mappings : has
+    icd_codes ||--o{ procedure_icd_mappings : has
+```
+
+### 2.3 Import Issues (Seeder)
+The seeder stores the `ICD -10` column value **as-is** — no parsing, no validation:
+
+```php
+// DatabaseSeeder.php — stores raw string
+$codeModel = IcdCode::firstOrCreate(
+    ['version' => 'ICD-10-CM', 'code' => $codeStr],
+    ['description' => 'Imported from Master TTGs']
+);
+```
+
+This means the `icd_codes.code` field contains **raw Excel values**, not normalized ICD-10-CM codes.
+
+---
+
+## 3. External APIs — Capabilities & Constraints
+
+### 3.1 NIH ClinicalTables API (ICD-10-CM)
+
+| Feature | Details |
+|---|---|
+| **Endpoint** | `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search` |
+| **Auth** | None required (public) |
+| **Rate limit** | No documented limit, but courtesy throttling recommended |
+| **Search** | `terms` param — searches by code prefix OR name text |
+| **Fields** | `sf` (search fields), `df` (display fields): `code`, `name` |
+| **Exact lookup** | ❌ No dedicated endpoint — must search and filter |
+
+**How we currently use it for verification:**
+```
+GET /api/icd10cm/v3/search?terms=C50.9&sf=code&df=code&maxList=5
+→ Returns: [6, ["C50.911","C50.912","C50.919",...]]
+```
+
+> [!WARNING]
+> **Prefix-matching behavior**: Searching for `C50.9` returns child codes like `C50.911`, not `C50.9` itself. This is because ICD-10-CM codes at higher category levels (3-char or 4-char) are parent categories, and the API returns billable/leaf codes. Our verification accepts prefix matches (`str_starts_with`) to handle this, but this means a code like `C50` would match ANY breast cancer code — which may be overly permissive.
+
+**Capabilities we're NOT using:**
+- `name` search field — could cross-reference procedure name → relevant ICD-10 codes
+- `ef` (extra fields) — could retrieve extended info like code hierarchy
+- Maximum result count (capped at `maxList`) — could expand to find more matches
+
+---
+
+### 3.2 WHO ICD-11 API
+
+| Feature | Details |
+|---|---|
+| **Endpoint (Search)** | `https://id.who.int/icd/release/11/2024-01/mms/search` |
+| **Endpoint (Code Lookup)** | `https://id.who.int/icd/release/11/2024-01/mms/codeInfo/{code}` |
+| **Auth** | OAuth2 Client Credentials (Bearer token, cached 55 min) |
+| **Rate limit** | Undocumented, but tokens expire in 1 hour |
+| **Search** | `q` param — free-text or code search |
+| **Exact code lookup** | ✅ V2 `codeInfo` endpoint — validates if a code is real |
+
+**How we currently use it for verification:**
+```
+GET /icd/release/11/2024-01/mms/search?q=2D02.Z
+→ Returns: { destinationEntities: [{ theCode: "2D02.Z", title: "..." }] }
+```
+
+We then do exact `theCode` matching — which only works if the search returns that exact code.
+
+> [!IMPORTANT]
+> **We're not using the `codeInfo` endpoint.** This is a **direct code lookup** that would definitively confirm whether a code exists without relying on search relevance ranking. Example: `GET /icd/release/11/2024-01/mms/codeInfo/2D02.Z` would return the code's details directly, or a 404 if it doesn't exist.
+
+**Key constraint**: No local ICD-11 codes exist. The Excel only has ICD-10. So ICD-11 verification currently always fails (correctly, since there's nothing to verify).
+
+---
+
+## 4. Current Verification Logic
+
+### Flow per Procedure:
+
+```mermaid
+flowchart TD
+    A["Procedure"] --> B["Load local ICD codes"]
+    B --> C{"Has ICD-10 codes?"}
+    C -->|Yes| D["Expand compound codes\n(split commas/semicolons)"]
+    D --> E["For each code:\nSearch NIH API"]
+    E --> F{"Any exact/prefix\nmatch found?"}
+    F -->|Yes| G["icd10_verified_at = now()"]
+    F -->|No| H["icd10_verified_at = NULL"]
+    
+    B --> I{"Has ICD-11 codes?"}
+    I -->|Yes| J["For each code:\nSearch WHO API"]
+    J --> K{"Exact theCode match?"}
+    K -->|Yes| L["icd11_verified_at = now()"]
+    K -->|No| M["icd11_verified_at = NULL"]
+    I -->|No| M
+    C -->|No| H
+```
+
+### What "Verified" currently means
+"The procedure has at least one local ICD code that was found in the external API via search"
+
+### What "Verified" does NOT mean
+- ❌ That the code is the *correct* code for this specific procedure
+- ❌ That the mapping is clinically accurate
+- ❌ That the code is the most specific/appropriate code available
+- ❌ That ICD-11 codes exist for this procedure (none imported)
+
+---
+
+## 5. Known Data Quality Issues
+
+### 5.1 Compound ICD-10 Codes
+~58 of ~187 ICD-10 entries are stored as comma/semicolon-separated multi-code strings:
+
+| Local Value | Actual Codes |
+|---|---|
+| `K04.7, K04.6, K12.2` | K04.7, K04.6, K12.2 |
+| `Q37,1; Q37.4; Q37.5` | Q37.1, Q37.4, Q37.5 |
+| `S02.60, S02.61, S02.40, S02.41, S02.30,` | S02.60, S02.61, S02.40, S02.41, S02.30 |
+
+The [expandCompoundCodes()](file:///c:/AppDev/Surgical_Procedure_Listings_App/backend/app/Services/MappingVerificationService.php#72-92) method splits these, but the underlying data should be normalized.
+
+### 5.2 Non-Standard Code Values
+Some entries are not ICD codes at all:
+
+| Value | Problem |
+|---|---|
+| `MULTIPLE - DEPENDS ON SITE` | Free-text, not a code |
+| Codes with trailing commas/spaces | Parsing artifacts |
+| Category-level codes (e.g., `C50`) | Valid but not billable — too broad |
+
+### 5.3 No ICD-11 Data
+The master Excel contains zero ICD-11 codes. The `icd_codes` table only has `ICD-10-CM` version entries. ICD-11 badges will never appear until ICD-11 codes are either:
+- Manually added to the database
+- Auto-discovered via API search
+
+### 5.4 No Code Descriptions
+All imported codes have `description = "Imported from Master TTGs"` — no clinical description from the source.
+
+---
+
+## 6. Accuracy Constraints
+
+### Why verification can be "wrong"
+
+| Scenario | Example | Impact |
+|---|---|---|
+| **Prefix match too broad** | Code `C50` matches ANY breast cancer subcategory | False sense of specificity |
+| **Correct code, wrong procedure** | A procedure has `K40` (inguinal hernia) but it's a femoral hernia procedure | Verifies as "matched" but clinically wrong |
+| **Category-level vs billable** | `C50` is valid but not a billable code — `C50.911` is | Verification passes but code is medically incomplete |
+| **Missing codes** | Procedure has no ICD-10 entry in the Excel | No verification possible, shows as "unmatched" even if it maps perfectly |
+| **ICD-10 ≠ ICD-11** | Code systems are structurally different | Can't cross-reference between them |
+
+> [!CAUTION]
+> **Fundamental limitation**: Verification only checks whether a code *exists* in the API. It cannot validate whether that code is *clinically correct for that specific procedure*. That requires human clinical review.
+
+---
+
+## 7. Improvement Strategies
+
+### Strategy A: Better API Usage (Quick Wins)
+
+#### A1. Use WHO `codeInfo` for exact ICD-11 validation
+Instead of search, use the direct lookup endpoint:
+```
+GET /icd/release/11/2024-01/mms/codeInfo/{code}
+```
+Returns structured data if the code exists, error response if not. More reliable than search matching.
+
+#### A2. Stricter NIH code matching
+Current: accept `str_starts_with` (prefix match).
+Improved: require exact match OR match only direct child codes (one level deeper).
+
+#### A3. Fetch and store code descriptions
+When verifying, capture the API's description and update the local `icd_codes.description` — providing clinical context in the UI.
+
+---
+
+### Strategy B: Auto-Discovery of ICD-11 Codes
+
+Since no ICD-11 codes exist locally, the verification command could **discover** them:
+
+1. For each procedure's existing ICD-10 codes, search the WHO API by code AND by procedure name
+2. If relevant ICD-11 codes are found, insert them into `icd_codes` with `version = 'ICD-11'`
+3. Create the `procedure_icd_mappings` pivot entries
+4. Mark as `auto_discovered` so they can be distinguished from manually curated codes
+5. Set `icd11_verified_at` since the code was just confirmed by the API
+
+**Trade-off**: Auto-discovered codes may not be clinically precise — they're best-effort matches.
+
+---
+
+### Strategy C: Confidence Scoring
+
+Replace the binary verified/not-verified with a **confidence score** (0–100):
+
+| Factor | Weight | Example |
+|---|---|---|
+| Exact code match in API | +40 | Code `C50.911` found exactly |
+| Category-level match only | +20 | Code `C50` found as parent |
+| Code description matches procedure name | +20 | "Breast cancer" in both |
+| Multiple codes verified | +10 | 3 of 4 local codes confirmed |
+| ICD-11 cross-reference exists | +10 | Both ICD-10 and ICD-11 mapped |
+
+This would give a nuanced "mapping quality" indicator instead of a simple green badge.
+
+---
+
+### Strategy D: Data Normalization (One-Time Fix)
+
+Fix the source data quality issues:
+
+1. **Split compound codes** at the database level — create individual `icd_codes` rows
+2. **Remove non-code entries** (e.g., "MULTIPLE - DEPENDS ON SITE")
+3. **Resolve category-level codes** to their most specific billable subcodes
+4. **Backfill descriptions** from the NIH API responses
+
+This could be an artisan command: `procedures:normalize-codes`
+
+---
+
+### Strategy E: Mapping Review Dashboard
+
+Build a dedicated admin view for reviewing and improving mappings:
+
+- List all procedures with their verification status, local codes, and API suggestions
+- For unmatched procedures: show top NIH/WHO suggestions to allow one-click mapping
+- For matched procedures: show the specific codes that verified and those that didn't
+- Allow manual code addition/removal via the UI
+- Track which mappings are "auto-discovered" vs "manually curated"
+
+---
+
+### Strategy F: Cross-Reference ICD-10 ↔ ICD-11
+
+WHO provides a **mapping table** between ICD-10 and ICD-11. This could be used to:
+- Automatically suggest ICD-11 codes based on existing ICD-10 codes
+- Validate that both versions reference the same clinical concept
+- This would require downloading or API-querying the WHO's published crosswalk data
+
+---
+
+## Summary of Recommended Priority
+
+| Priority | Strategy | Effort | Impact |
+|---|---|---|---|
+| 🔴 High | **D. Data Normalization** — fix compound codes, non-codes | Low | Fixes ~58 broken entries |
+| 🔴 High | **A3. Fetch descriptions** — enrich local data during verification | Low | Adds clinical context |
+| 🟡 Medium | **B. ICD-11 Auto-Discovery** — populate ICD-11 codes from WHO API | Medium | Enables ICD-11 badges |
+| 🟡 Medium | **A1. WHO `codeInfo` endpoint** — exact code lookup | Low | More reliable WHO verification |
+| 🟡 Medium | **A2. Stricter NIH matching** — reduce false positives | Low | Better accuracy |
+| 🟢 Lower | **C. Confidence Scoring** — nuanced quality indicator | Medium | Better UX for clinical teams |
+| 🟢 Lower | **E. Mapping Dashboard** — admin review UI | High | Full mapping governance |
+| 🟢 Lower | **F. ICD-10 ↔ ICD-11 Crosswalk** — automatic cross-referencing | Medium | Automated migration path |

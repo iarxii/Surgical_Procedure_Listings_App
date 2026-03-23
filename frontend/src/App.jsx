@@ -2,18 +2,26 @@ import { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import SearchInput from './components/SearchInput';
 import DualCodeDisplay from './components/DualCodeDisplay';
 import AuthorizedProcedures from './components/AuthorizedProcedures';
 import Dashboard from './components/Dashboard';
 import Comments from './components/Comments';
 import ThemeToggle from './components/ThemeToggle';
-import { Activity, Clock, AlertTriangle, CheckCircle2, BarChart3, Search } from 'lucide-react';
+import { Activity, Clock, AlertTriangle, CheckCircle2, BarChart3, Search, LayoutGrid, LogIn, LogOut, User } from 'lucide-react';
+
+import Login from './pages/Login';
+import AdminPortal from './pages/AdminPortal';
+import ProcedureImport from './pages/ProcedureImport';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import logo from './assets/gauteng-health_12_orig.jpg';
 
 /* ─────────── Shared Header ─────────── */
 function AppHeader() {
+  const { user, logout, isAdmin } = useAuth();
+
   return (
     <header
       className="backdrop-blur-md shadow-sm sticky top-0 z-10 transition-all duration-300"
@@ -51,7 +59,42 @@ function AppHeader() {
             <NavLink to="/search" className={({ isActive }) => `app-nav-link ${isActive ? 'active' : ''}`}>
               <Search className="h-4 w-4" /> Search
             </NavLink>
+            {isAdmin && (
+              <NavLink to="/admin" className={({ isActive }) => `app-nav-link ${isActive ? 'active' : ''}`}>
+                <LayoutGrid className="h-4 w-4" /> Admin
+              </NavLink>
+            )}
           </nav>
+          
+          <div className="h-6 w-px mx-1" style={{ backgroundColor: 'var(--border)' }}></div>
+
+          {user ? (
+            <div className="flex items-center gap-4">
+              <div className="hidden sm:flex flex-col items-end">
+                <span className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>{user.name}</span>
+                <span className="text-[10px] uppercase tracking-tighter opacity-70" style={{ color: 'var(--text-muted)' }}>
+                  {isAdmin ? 'Administrator' : 'Clinical User'}
+                </span>
+              </div>
+              <button 
+                onClick={logout}
+                className="p-2.5 rounded-xl transition-all hover:bg-white/5 group"
+                title="Logout"
+                style={{ border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+              >
+                <LogOut className="h-5 w-5 group-hover:text-accent transition-colors" />
+              </button>
+            </div>
+          ) : (
+            <NavLink 
+              to="/login" 
+              className="px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all hover:shadow-lg active:scale-95"
+              style={{ background: 'var(--accent)', color: 'white' }}
+            >
+              <LogIn className="h-4 w-4" /> Login
+            </NavLink>
+          )}
+
           <ThemeToggle />
         </div>
       </div>
@@ -357,6 +400,28 @@ function SearchPage() {
   );
 }
 
+/* ─────────── Protection Wrappers ─────────── */
+function ProtectedRoute({ children }) {
+  const { user, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) return null;
+  if (!user) return <Navigate to="/login" state={{ from: location }} replace />;
+  
+  return children;
+}
+
+function AdminRoute({ children }) {
+  const { user, isAdmin, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) return null;
+  if (!user) return <Navigate to="/login" state={{ from: location }} replace />;
+  if (!isAdmin) return <Navigate to="/" replace />;
+  
+  return children;
+}
+
 /* ─────────── App Root ─────────── */
 function AppContent() {
   return (
@@ -365,6 +430,19 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Protected Admin Routes */}
+        <Route path="/admin" element={
+          <AdminRoute>
+            <AdminPortal />
+          </AdminRoute>
+        } />
+        <Route path="/admin/import" element={
+          <AdminRoute>
+            <ProcedureImport />
+          </AdminRoute>
+        } />
       </Routes>
     </div>
   );
@@ -373,9 +451,11 @@ function AppContent() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

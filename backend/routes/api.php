@@ -7,8 +7,17 @@ use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CommentController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
+use App\Http\Controllers\AuthController;
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [AuthController::class, 'me']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    
+    Route::middleware('admin')->group(function () {
+        Route::post('/procedures/import', [ProcedureController::class, 'import']);
+    });
 });
 
 Route::get('/search', [SearchController::class, 'search']);

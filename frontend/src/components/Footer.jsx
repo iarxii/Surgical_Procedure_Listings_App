@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/iarxii/Surgical_Procedure_Listings_App"
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-1 transition-colors hover:opacity-80" 

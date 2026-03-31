@@ -9,6 +9,7 @@ import AuthorizedProcedures from './components/AuthorizedProcedures';
 import Dashboard from './components/Dashboard';
 import Comments from './components/Comments';
 import ThemeToggle from './components/ThemeToggle';
+import Footer from './components/Footer';
 import { Activity, Clock, AlertTriangle, CheckCircle2, BarChart3, Search, LayoutGrid, LogIn, LogOut, User } from 'lucide-react';
 
 import Login from './pages/Login';
@@ -16,7 +17,9 @@ import AdminPortal from './pages/AdminPortal';
 import ProcedureImport from './pages/ProcedureImport';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import logo from './assets/gauteng-health_12_orig.jpg';
+// import logo from './assets/gauteng-health_12_orig.jpg';
+import logo from './assets/logo_icon_tr.png';
+import banner from './assets/banner_logo.png';
 
 /* ─────────── Shared Header ─────────── */
 function AppHeader() {
@@ -35,11 +38,12 @@ function AppHeader() {
           <div
             className="p-2.5 rounded-xl text-white shadow-lg"
             style={{
-              background: `linear-gradient(135deg, var(--accent), var(--accent-dark))`,
+              // background: `linear-gradient(135deg, var(--accent), var(--accent-dark))`,
               boxShadow: `0 4px 14px var(--shadow-color)`,
             }}
           >
-            <Activity className="h-6 w-6" />
+            {/* <Activity className="h-6 w-6" /> */}
+            <img src={logo} alt="Gauteng Health Logo" className="h-6w-6" style={{ width: '100px', height: '100px' }} />
           </div>
           <div>
             <h1 className="text-2xl font-black tracking-tight leading-none" style={{ color: 'var(--text-primary)' }}>
@@ -171,7 +175,7 @@ function SearchPage() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12 transform transition-all hover:scale-[1.01] duration-300">
-        <img src={logo} alt="Gauteng Health Logo" className="w-auto h-50 mx-auto mb-4 rounded-xl" />
+        <img src={banner} alt="Gauteng Health Logo" className="w-auto h-50 mx-auto mb-4 rounded-xl" />
         <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl pb-2"
           style={{
             backgroundImage: `linear-gradient(to right, var(--text-primary), var(--text-secondary), var(--text-primary))`,
@@ -425,25 +429,28 @@ function AdminRoute({ children }) {
 /* ─────────── App Root ─────────── */
 function AppContent() {
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+    <div className="min-h-screen flex flex-col font-sans" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       <AppHeader />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/login" element={<Login />} />
-        
-        {/* Protected Admin Routes */}
-        <Route path="/admin" element={
-          <AdminRoute>
-            <AdminPortal />
-          </AdminRoute>
-        } />
-        <Route path="/admin/import" element={
-          <AdminRoute>
-            <ProcedureImport />
-          </AdminRoute>
-        } />
-      </Routes>
+      <main className="flex-1 pb-16">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/login" element={<Login />} />
+          
+          {/* Protected Admin Routes */}
+          <Route path="/admin" element={
+            <AdminRoute>
+              <AdminPortal />
+            </AdminRoute>
+          } />
+          <Route path="/admin/import" element={
+            <AdminRoute>
+              <ProcedureImport />
+            </AdminRoute>
+          } />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }

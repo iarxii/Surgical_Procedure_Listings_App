@@ -18,7 +18,7 @@ function getInitial() {
     } catch { /* ignore */ }
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return { theme: 'indigo', mode: prefersDark ? 'dark' : 'light' };
+    return { theme: 'ocean', mode: prefersDark ? 'dark' : 'light' };
 }
 
 const ThemeContext = createContext(null);

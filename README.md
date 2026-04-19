@@ -269,3 +269,11 @@ Surgical_Procedure_Listings_App/
 | [Mapping System Analysis](docs/mapping_system_analysis.md.resolved) | Deep-dive into the mapping/verification pipeline, constraints, and improvement strategies |
 | [Master TTGs](docs/Master_v4%20TTGs.xlsx) | Source Excel with procedure definitions and ICD-10 codes |
 | [Planning Docs](docs/planning/) | Implementation plans for each feature iteration |
+
+
+## License
+This project is Proprietary and Closed Source. All Rights Reserved.
+
+
+## Contributing
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project.

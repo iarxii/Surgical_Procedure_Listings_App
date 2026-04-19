@@ -123,7 +123,12 @@ function SearchPage() {
           axios.get('/catalog.json'),
           axios.get('/specialities.json'),
         ]);
-        setCatalogData({ procedures: catalogRes.data.data, specialities: specRes.data.data, loaded: true, error: null });
+        setCatalogData({ 
+          procedures: catalogRes.data.data, 
+          specialities: specRes.data.data.map(s => typeof s === 'object' ? s.name : s), 
+          loaded: true, 
+          error: null 
+        });
       } catch (err) {
         console.error('Failed to fetch catalog:', err);
         setCatalogData(prev => ({ ...prev, loaded: true, error: 'Could not load authorized procedures list.' }));

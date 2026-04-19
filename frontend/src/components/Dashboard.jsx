@@ -2,13 +2,52 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
     Activity, BarChart3, Layers, Clock, Hash,
-    TrendingUp, Stethoscope, ArrowRight, Loader2
+    TrendingUp, Stethoscope, ArrowRight, Loader2, AlertTriangle
 } from 'lucide-react';
 
 const CHART_COLORS = [
     'var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)',
     'var(--chart-4)', 'var(--chart-5)', 'var(--chart-6)',
 ];
+
+const MOCK_STATS = {
+    total_procedures: 258,
+    total_specialities: 23,
+    total_mappings: 1450,
+    avg_ttg_days: 14,
+    by_speciality: [
+        { name: "General Surgery", count: 45 },
+        { name: "Orthopaedics", count: 38 },
+        { name: "Cardiology", count: 25 },
+        { name: "Gynaecology", count: 22 },
+        { name: "Neurology", count: 18 },
+        { name: "Urology", count: 16 }
+    ],
+    ttg_distribution: [
+        { label: "< 24h", count: 15 },
+        { label: "1-3 Days", count: 45 },
+        { label: "1 Week", count: 68 },
+        { label: "1 Month", count: 82 },
+        { label: "> 1 Month", count: 48 }
+    ],
+    by_level: [
+        { name: "Emergency (E)", count: 35 },
+        { name: "Tertiary (T)", count: 120 },
+        { name: "Regional (R)", count: 103 }
+    ],
+    by_care_setting: [
+        { name: "ICU", count: 45 },
+        { name: "High Care", count: 70 },
+        { name: "General Ward", count: 125 },
+        { name: "Outpatient", count: 18 }
+    ],
+    recent_procedures: [
+        { id: 1, procedure_name: "Appendectomy", speciality: "General Surgery", level: "R/T", ttg_days: 1 },
+        { id: 2, procedure_name: "Coronary Bypass", speciality: "Cardiology", level: "T/C", ttg_days: 7 },
+        { id: 3, procedure_name: "Hip Replacement", speciality: "Orthopaedics", level: "R/T", ttg_months: "3 months" },
+        { id: 4, procedure_name: "Craniotomy", speciality: "Neurology", level: "T/C", ttg_days: 2 }
+    ]
+};
 
 function KpiCard({ icon: Icon, label, value, accent }) {
     return (
@@ -169,15 +208,19 @@ export default function Dashboard() {
     const [stats, setStats] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isMock, setIsMock] = useState(false);
 
     useEffect(() => {
         const fetchStats = async () => {
             try {
                 const res = await axios.get('http://127.0.0.1:8085/api/dashboard/stats');
                 setStats(res.data);
+                setIsMock(false);
             } catch (err) {
-                console.error('Failed to load dashboard stats:', err);
-                setError('Could not load dashboard data. Ensure the backend is running.');
+                console.warn('Backend unavailable, falling back to MOCK_STATS for Dashboard.');
+                setStats(MOCK_STATS);
+                setIsMock(true);
+                // setError('Could not load dashboard data. Ensure the backend is running.');
             } finally {
                 setLoading(false);
             }
@@ -214,6 +257,14 @@ export default function Dashboard() {
                     Key metrics and visualizations for the surgical procedure catalogue.
                 </p>
             </div>
+
+            {isMock && (
+                <div className="mb-8 p-4 rounded-xl flex items-center gap-3 text-sm font-semibold shadow-sm animate-in fade-in" 
+                     style={{ backgroundColor: 'var(--warning-bg)', color: 'var(--warning-text)', border: '1px solid var(--warning-border)' }}>
+                    <AlertTriangle className="h-5 w-5" />
+                    Offline Preview Mode: Rendering Sample KPI Data.
+                </div>
+            )}
 
             {/* KPI Cards */}
             <div className="dashboard-kpi-grid">

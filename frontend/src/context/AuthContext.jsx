@@ -23,10 +23,25 @@ export const AuthProvider = ({ children }) => {
             
             return { success: true };
         } catch (error) {
+            // Provide Mock Login Fallback
+            if (email === 'admin@mock.com' && password === 'admin') {
+                console.warn('Backend unavailable, mocking Admin login for Netlify Preview.');
+                const mockToken = 'mock-admin-token-12345';
+                const mockUser = { id: 999, name: 'Demo Administrator', email: 'admin@mock.com', is_admin: Boolean(true) };
+                
+                setToken(mockToken);
+                setUser(mockUser);
+                localStorage.setItem('token', mockToken);
+                localStorage.setItem('user', JSON.stringify(mockUser));
+                
+                axios.defaults.headers.common['Authorization'] = `Bearer ${mockToken}`;
+                return { success: true };
+            }
+
             console.error('Login failed:', error);
             return { 
                 success: false, 
-                message: error.response?.data?.message || 'Login failed. Please check your credentials.' 
+                message: error.response?.data?.message || 'Login failed. Provide admin@mock.com / admin to preview the application offline.' 
             };
         }
     }, []);

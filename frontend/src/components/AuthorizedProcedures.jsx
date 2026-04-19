@@ -272,7 +272,7 @@ export default function AuthorizedProcedures({ onSelectProcedure, catalogData })
                                                     color: 'var(--text-muted)',
                                                 }}
                                             >
-                                                TTG: {proc.ttg_days ? `${proc.ttg_days} Days` : proc.ttg_months}
+                                                Clinical SLA: {proc.ttg_days ? `${proc.ttg_days} Days` : proc.ttg_months}
                                             </span>
                                             {proc.icd_codes && proc.icd_codes.length > 0 && (
                                                 <span className="font-mono tracking-wide text-[11px]" style={{ color: 'var(--text-muted)' }}>

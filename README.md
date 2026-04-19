@@ -1,6 +1,6 @@
 # Surgical Procedure Listing App
 
-A React + Laravel web application for clinicians and administrators to search, map, and verify surgical procedures against **ICD-10-CM** and **ICD-11** codes, with integrated Treatment Time Guarantee (TTG) SLA tracking.
+A React + Laravel web application for clinicians and administrators to search, map, and verify surgical procedures against **ICD-10-CM** and **ICD-11** codes, with integrated Clinical SLA tracking.
 
 ## Table of Contents
 - [Features](#features)
@@ -16,7 +16,7 @@ A React + Laravel web application for clinicians and administrators to search, m
 
 ## Project Purpose & Public Utility
 
-This project serves as a prototype and demonstration showcase designed to assist public health authorities, such as the Gauteng Department of Health (GDoH), in standardizing their surgical operations workflows. Built conceptually as a TTG (Treatment Time Guarantee) tracking tool, this application aims to bridge the gap between localized procedure definitions and modern international coding standards (ICD-10-CM and ICD-11).
+This project serves as a prototype and demonstration showcase designed to assist public health authorities, such as the Gauteng Department of Health (GDoH), in standardizing their surgical operations workflows. Built conceptually as a Clinical SLA tracking tool, this application aims to bridge the gap between localized procedure definitions and modern international coding standards (ICD-10-CM and ICD-11).
 
 By offering a streamlined, accessible utility for tracking surgical SLAs and ensuring that procedure mappings adhere to WHO-recognized specifications, this prototype highlights the feasibility of adopting transparent, data-driven healthcare administration in the public sector.
 
@@ -30,13 +30,13 @@ By offering a streamlined, accessible utility for tracking surgical SLAs and ens
 - **Primary Match Card** — Standalone card showing the procedure's local ICD codes, enriched descriptions, and verification badges
 
 ### Authorized Procedure List
-- **258 procedures** imported from the Master TTG spreadsheet, grouped by surgical speciality
+- **258 procedures** imported from the Master Clinical SLA spreadsheet, grouped by surgical speciality
 - **Verified/unverified filter** — filter to show only procedures with verified ICD mappings
 - **Speciality filter** — dropdown to filter by surgical speciality
 - **Verification badges** — ICD-10 ✓ and ICD-11 ✓ badges indicating external API verification status
 
-### TTG SLA Tracking
-- Treatment Time Guarantees displayed in days
+### Clinical SLA Tracking
+- Clinical SLAs displayed in days
 - 1st Alert (70%) and 2nd Alert (90%) threshold indicators
 - Level of Care and Post-Care Setting metadata
 

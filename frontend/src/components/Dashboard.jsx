@@ -271,13 +271,13 @@ export default function Dashboard() {
                 <KpiCard icon={Activity} label="Total Procedures" value={stats.total_procedures} accent="var(--chart-1)" />
                 <KpiCard icon={Stethoscope} label="Specialities" value={stats.total_specialities} accent="var(--chart-2)" />
                 <KpiCard icon={Hash} label="ICD Mappings" value={stats.total_mappings} accent="var(--chart-3)" />
-                <KpiCard icon={Clock} label="Avg TTG (days)" value={stats.avg_ttg_days} accent="var(--chart-4)" />
+                <KpiCard icon={Clock} label="Avg Clinical SLA (days)" value={stats.avg_ttg_days} accent="var(--chart-4)" />
             </div>
 
             {/* Charts – Row 1 */}
             <div className="dashboard-charts-row">
                 <HorizontalBarChart data={stats.by_speciality} title="Procedures by Speciality" icon={Layers} />
-                <VerticalBarChart data={stats.ttg_distribution} title="TTG Distribution" icon={TrendingUp} />
+                <VerticalBarChart data={stats.ttg_distribution} title="Clinical SLA Distribution" icon={TrendingUp} />
             </div>
 
             {/* Charts – Row 2 */}
@@ -299,7 +299,7 @@ export default function Dashboard() {
                                 <th>Procedure</th>
                                 <th>Speciality</th>
                                 <th>Level</th>
-                                <th>TTG Target</th>
+                                <th>Clinical SLA Target</th>
                             </tr>
                         </thead>
                         <tbody>

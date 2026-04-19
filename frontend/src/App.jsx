@@ -192,7 +192,7 @@ function SearchPage() {
           Find Procedures & Map Codes
         </h2>
         <p className="mt-6 text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          Search for surgical procedures to view <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>Treatment Time Guarantees (TTGs)</strong> and cross-walk ICD-10-CM and ICD-11 code mappings seamlessly.
+          Search for surgical procedures to view <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>Clinical SLAs</strong> and cross-walk ICD-10-CM and ICD-11 code mappings seamlessly.
         </p>
       </div>
 
@@ -331,7 +331,7 @@ function SearchPage() {
                   }}
                 >
                   <h4 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 mb-3" style={{ color: 'var(--accent-text)' }}>
-                    <Clock className="h-4 w-4" style={{ color: 'var(--accent)' }} /> Treatment SLA Target
+                    <Clock className="h-4 w-4" style={{ color: 'var(--accent)' }} /> Clinical SLA Target
                   </h4>
                   <div className="text-4xl font-extrabold" style={{ color: 'var(--accent)' }}>
                     {primaryProcedure.ttg_days ? `${primaryProcedure.ttg_days} days` : primaryProcedure.ttg_months}

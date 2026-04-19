@@ -65,7 +65,7 @@ export default function ProcedureImport() {
             setResult({
                 data: {
                     total_imported: 258,
-                    errors: ['Row 12: Minor padding issues normalized.', 'Row 89: Expected string for TTG, converted.']
+                    errors: ['Row 12: Minor padding issues normalized.', 'Row 89: Expected string for Clinical SLA, converted.']
                 }
             });
             setFile(null);
@@ -90,7 +90,7 @@ export default function ProcedureImport() {
                         Import Procedure List
                     </h2>
                     <p className="text-lg font-medium mt-1" style={{ color: 'var(--text-muted)' }}>
-                        Upload the latest <strong className="font-bold">Master TTGs.xlsx</strong> file
+                        Upload the latest <strong className="font-bold">Master Clinical SLAs.xlsx</strong> file
                     </p>
                 </div>
             </div>

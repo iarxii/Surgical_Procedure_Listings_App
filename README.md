@@ -14,6 +14,13 @@ A React + Laravel web application for clinicians and administrators to search, m
 
 ---
 
+## Project Purpose & Public Utility
+
+This project serves as a prototype and demonstration showcase designed to assist public health authorities, such as the Gauteng Department of Health (GDoH), in standardizing their surgical operations workflows. Built conceptually as a TTG (Treatment Time Guarantee) tracking tool, this application aims to bridge the gap between localized procedure definitions and modern international coding standards (ICD-10-CM and ICD-11).
+
+By offering a streamlined, accessible utility for tracking surgical SLAs and ensuring that procedure mappings adhere to WHO-recognized specifications, this prototype highlights the feasibility of adopting transparent, data-driven healthcare administration in the public sector.
+
+---
 ## Features
 
 ### Procedure Search & Code Mapping

@@ -50,7 +50,7 @@ function AppHeader() {
               Surgical Procedure Mapping
             </h1>
             <span className="text-xs font-bold uppercase tracking-widest mt-1 block" style={{ color: 'var(--accent)' }}>
-              Clinical SLA Tool
+              Clinical SLA Tool <span style={{ color: 'var(--warning-text)', backgroundColor: 'var(--warning-bg)', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>MOCK DATA VIEW</span>
             </span>
           </div>
         </div>
@@ -120,8 +120,8 @@ function SearchPage() {
     const fetchCatalog = async () => {
       try {
         const [catalogRes, specRes] = await Promise.all([
-          axios.get('http://127.0.0.1:8085/api/procedures/catalog'),
-          axios.get('http://127.0.0.1:8085/api/procedures/specialities'),
+          axios.get('/catalog.json'),
+          axios.get('/specialities.json'),
         ]);
         setCatalogData({ procedures: catalogRes.data.data, specialities: specRes.data.data, loaded: true, error: null });
       } catch (err) {
@@ -144,7 +144,7 @@ function SearchPage() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://127.0.0.1:8085/api/search?query=${encodeURIComponent(query)}`);
+      const response = await axios.post(`/.netlify/functions/search`, { query });
       setResults(response.data);
     } catch (err) {
       console.error("Search failed:", err);
@@ -160,7 +160,7 @@ function SearchPage() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://127.0.0.1:8085/api/search/by-procedure/${procedure.id}`);
+      const response = await axios.post(`/.netlify/functions/search`, { procedure });
       setResults(response.data);
     } catch (err) {
       console.error("Procedure search failed:", err);

@@ -1,0 +1,6358 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Breast Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C50.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 2,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Prostate Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C61",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 3,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Oesophageal Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C15",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 4,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Rectal Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 5,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Anal Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 6,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Carvical Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C53.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 7,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Uterine Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C54",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 8,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Bladder Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C67",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 9,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Head and Neck Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C76-C80",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 10,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Non-melanoma skin Cancer",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C44",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 11,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Glioblastoma Multiforme",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "4 weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C71.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 12,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Acute Spinlal Cord Compression (with possible preservation of neurologic function)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "<24hours",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "G95.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 13,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Soft-tissue Sarcoma (pre-op RT)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C49",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 14,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Soft-tissue Sarcoma (post-op RT)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C49",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 15,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Pituitary Adenoma",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D35.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 16,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Meningioma",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D32.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 17,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Paediatic Cancers",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "To sync with protocol bing followed re. timing of radiotherapy with chemotherpy",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Depending on site",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 18,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Brain Metastases",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "72 hours",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C79.31",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 19,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Spinal cord compression",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "Emergency MRI within 24 hours inpatient; Outpatient MRI one year waiting list",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "G95.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 20,
+      "speciality": "Radiation Oncology",
+      "procedure_name": "Bleeding from tumour",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "72 hours",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Multiple - depends on site",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 21,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Adult congenital heart disease \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q24.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 22,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Coronary artery bypass \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "16 Weeks",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I25.10",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 23,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Valvular heart replacements \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "14 Weeks",
+      "ttg_days": 105,
+      "ttg_minimum_70_pct": 74,
+      "ttg_alert_90_pct": 95,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I35.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 24,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Infective Endocarditis",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "2 Weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I33.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 25,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Pericardial disease \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I31.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 26,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Cardiac tumours \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D15.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 27,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Pulmonary endarterectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I26.99",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 28,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Segmentectomy / Wedge Resection\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "6 Weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "D38.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 29,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Lobectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 30,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Pneumonectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "10 Weeks",
+      "ttg_days": 75,
+      "ttg_minimum_70_pct": 53,
+      "ttg_alert_90_pct": 68,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 31,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Bullectomy / Pleurectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J43.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 32,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Tracheal resection / Dilatation / Stent\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "2 Weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C33",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 33,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Hydatid Cystectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "6 Weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "B67.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 34,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Washout / Decortication\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J86.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 35,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Basal Drain /\u00a0Eloesser\u00a0Flap / Thoracoplasty\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J86.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 36,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Oesophagoscopy for foreign body removal\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T18.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 37,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Tracheostomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J95.00",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 38,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Thoracotomy for washout and rib fixation\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Weeks",
+      "ttg_days": 23,
+      "ttg_minimum_70_pct": 16,
+      "ttg_alert_90_pct": 21,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "S22.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 39,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Thoracotomy for mediastinal drainage\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J85.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 40,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Bronchoscopy (Diagnostic / Therapeutic)\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "R09.89",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 41,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Biopsy (Pleura, Lung, Mediastinal)\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Weeks",
+      "ttg_days": 23,
+      "ttg_minimum_70_pct": 16,
+      "ttg_alert_90_pct": 21,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z01.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 42,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Sternal wound / thoracotomy wound debridement\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Week/0=Emergency",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T81.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 43,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Neonatal surgeries (congenital defects)",
+      "level": "T/Q",
+      "care_icu": "HC/ICU",
+      "ttg_months": "1 week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q43.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "Q42.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "P76.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "P77",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 5,
+          "code": "Q79",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 44,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Infant surgeries (IHPS, Intussusception\u2026)",
+      "level": "T/C",
+      "care_icu": "HC",
+      "ttg_months": "2 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q40.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K56.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 45,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Appendicectomy <12years old",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K37",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 46,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Appendicectomy >12years old",
+      "level": "D/C",
+      "care_icu": null,
+      "ttg_months": "2 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K37",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 47,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Endoscopies (airway and upper GIT)",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "2 day",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T17",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T18.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 48,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Ileostomy and colostomy reversals",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "P77",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K56.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 49,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Hypospadias repair",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q54.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 50,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Inguinal and umbilical hernias",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K40.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K42.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 51,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Orchidopexy",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q53.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 52,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Oncological surgery",
+      "level": "T/Q",
+      "care_icu": "HC",
+      "ttg_months": "2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C64.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "C22.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "C74.90",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "D29.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 53,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Chemo and dialysis lines / catheter",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "1 week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N17.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 54,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Burns & Trauma",
+      "level": "T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "1 day",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T30.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "V03.10",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "Y30",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 55,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Pancteaticohepatobiliary",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "P59.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "R17",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 56,
+      "speciality": "Paediatric Surgery",
+      "procedure_name": "Abscesses",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "L02.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K61.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K75.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 57,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Gastroscopy",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K25 TO K29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 58,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "colonoscopy",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K62.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 59,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "ERCP",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "<week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K 80-K87",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 60,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "EUS",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "1-2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K85",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K86.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K86.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 61,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Cholecystectomy",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "6-8 weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K80-K81",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 62,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Bile duct exploration",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "6-8 weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K 80-K87",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 63,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Hepatectomy",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "4weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C22",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 64,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Pancreatoduodenectomy",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "4 weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C 25.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 65,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Partial Pancreatectomy",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "4 weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C25.1-C25.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 66,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Hellers Myotomy",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "6-8 weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K22.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 67,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Gastrectomy",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C16",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 68,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Oessophagectomy",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C15",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 69,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Hemicolectomy",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "4weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C18",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 70,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "lower anterior resection",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 71,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "APR",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 72,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Haemorroidectomy",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "8 weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K62.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K64",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 73,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Peranal fistula",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "4-6 weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K60",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 74,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "Appendicitis",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "72 hrs",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K35-K38",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 75,
+      "speciality": "Surgical Gastroenterology",
+      "procedure_name": "perfortaed peptic ulcer",
+      "level": "ALL",
+      "care_icu": null,
+      "ttg_months": "72hrs",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K26.1-K26.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 76,
+      "speciality": "Surgery",
+      "procedure_name": "Colostomy reversal",
+      "level": "All",
+      "care_icu": "?HC",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z93.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 77,
+      "speciality": "Surgery",
+      "procedure_name": "Ileostomy reversal",
+      "level": "All",
+      "care_icu": "?HC",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z93.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 78,
+      "speciality": "Surgery",
+      "procedure_name": "Inguinal hernia repair",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K40.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 79,
+      "speciality": "Surgery",
+      "procedure_name": "Umbilical hernia repair",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K42.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 80,
+      "speciality": "Surgery",
+      "procedure_name": "Ventral/incisional hernia repair",
+      "level": "All",
+      "care_icu": "?HC / ?ICU",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K43.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 81,
+      "speciality": "Surgery",
+      "procedure_name": "Laparoscopic cholecystectomy",
+      "level": "All",
+      "care_icu": "?HC / ?ICU",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K80",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 82,
+      "speciality": "Surgery",
+      "procedure_name": "Skin graft",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 83,
+      "speciality": "Surgery",
+      "procedure_name": "Lipoma excision",
+      "level": "D/R",
+      "care_icu": "?HC",
+      "ttg_months": "1 year",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D17",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 84,
+      "speciality": "Surgery",
+      "procedure_name": "Sebaceous cyst excision",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "1 year",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "L72.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 85,
+      "speciality": "Surgery",
+      "procedure_name": "Fibroadenoma excision",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D24",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 86,
+      "speciality": "ENT",
+      "procedure_name": "Adenoidectomy and Tonsillectomy",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J35.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "J35.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 87,
+      "speciality": "ENT",
+      "procedure_name": "Myringotomy and Grommets",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H65.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "H66.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 88,
+      "speciality": "ENT",
+      "procedure_name": "Head and Neck Infections and abscesses",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "L02.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "J39.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "J39.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 89,
+      "speciality": "ENT",
+      "procedure_name": "Microdirect Laryngoscopy and Laser Therapy",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q31.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "J95.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "J38",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 90,
+      "speciality": "ENT",
+      "procedure_name": "Panedoscopy and Biospy",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 Month",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D02.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "D38.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "C32.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 91,
+      "speciality": "ENT",
+      "procedure_name": "Congenital Cysts excision",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q38",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "Q18",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "Q89.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 92,
+      "speciality": "ENT",
+      "procedure_name": "Head and Neck Tumour Resection(Malignant)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C76.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "C77.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 93,
+      "speciality": "ENT",
+      "procedure_name": "Head and Neck Tumour Resection(Benign)",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K11.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K11.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 94,
+      "speciality": "ENT",
+      "procedure_name": "Chronic Mastoidectomy",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H70.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 95,
+      "speciality": "ENT",
+      "procedure_name": "Acute Mastoidectomy",
+      "level": "T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H71",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "H70.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "G06.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 96,
+      "speciality": "ENT",
+      "procedure_name": "Frontoethmoidectomy/FESS",
+      "level": "T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H05.01",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "J01",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "B46.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 97,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "oesophagectomy for cancer",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C15.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 98,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "gastrectomy for cancer",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C16.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 99,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Oesophagectmy - chronic Benign disease",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K22.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T54.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 100,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Gastrectomy or bypass for bening disease - chronic",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K31.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K27.7",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "T54.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 101,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Antireflux Procedures laparascopic",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K21.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K21.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K44.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 102,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "diaphragmatic hernia repair",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K44.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 103,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Gastric Bypass - complete obstruction",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K31.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K27.7",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "C16.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 104,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Hellers myotomy - laparoscopic",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K22.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 105,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "interventional Endoscopic procedures",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K22.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K22.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K22.7",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "K31.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 106,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Feeding Gastrostomy - PEG or Open",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E46",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 107,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Feedinf jejunostomy",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E46",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 108,
+      "speciality": "Ellective Upper GIT",
+      "procedure_name": "Gastroscopy",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "various",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 109,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Total Abdominal Hysterectomy",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K80.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 110,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Laparoscopic Salpingectomy for Ectopic Pregnancy",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "O00.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 111,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Caesarian Section (Elective)",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "14 days",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "O82.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 112,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Diagnostic Dilatation and Curettage",
+      "level": "D/R",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N85.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "N95.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "R10.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 113,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Caesarian Section (Emergency)",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "O82.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 114,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Open (Laparotomy) Myomectomy",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D25.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 115,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Bilateral Salpingectomy (Sterilization)",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "5 months",
+      "ttg_days": 150,
+      "ttg_minimum_70_pct": 105,
+      "ttg_alert_90_pct": 135,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z30.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 116,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Radical Hysterectomy for Cervical Cancer",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "4 months",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C53.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "C53.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 117,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Hysterectomy for Endometrial Cancer",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "4 months",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C54.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 118,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Laparotomy, Total Hysterectomy, and Bilateral Salingo-Oophorectomy for Ovarian Cancer",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "4 months",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C56",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 119,
+      "speciality": "Obstetrics & Gynaecology",
+      "procedure_name": "Evacuation of the uterus (Miscarriage)",
+      "level": "R/T",
+      "care_icu": "HC",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "O03.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "O02.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "O04.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 120,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Thyroid lobectomy",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E00 - E07",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 121,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Total thyroidectomy (Benign)",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 122,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Total thyroidectomy (Malignant)",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 123,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Total thyroidectomy with retrosternal extension",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 124,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Total thyroidectomy and lymphadenectomy",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 125,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Parathyroidectomy (s-calcium <3.0mmol)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "E21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "E75.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 126,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Parathyroidectomy (s-calcium >2.9mmol/l)",
+      "level": "T/C",
+      "care_icu": "HC",
+      "ttg_months": "1 Months",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "E21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "E75.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 127,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Subtotal parathyroidectomy",
+      "level": "T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 128,
+      "speciality": "Endocrine Surgery",
+      "procedure_name": "Adrenelectomy",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E24",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "E25",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "E26",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "E27",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 5,
+          "code": "C74",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 6,
+          "code": "D35",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 7,
+          "code": "D44.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 129,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Head & Neck Reconstruction",
+      "level": "C/T",
+      "care_icu": "ICU",
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C76.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "C77.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 130,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Skin Cancer Wide Local Excision",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C44",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 131,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Benign soft tissue lumps",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D17.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "D21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 132,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Breast Reconstruction",
+      "level": "T/C",
+      "care_icu": "HC",
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C50",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 133,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Breast Reduction",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N62",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 134,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Keloid Excision",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "L90.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "L91.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "L73.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 135,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Cleft Lip Repair",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q36",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 136,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Cleft Palate Repair",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q35",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 137,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Burn Reconstruction",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M24.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 138,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Congenital Hand Conditions",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q68.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 139,
+      "speciality": "Plastic & Reconstructive Surgery",
+      "procedure_name": "Wound Closure",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "1 Month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T14.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 140,
+      "speciality": "Trauma",
+      "procedure_name": "Incisional hernia repair - tissue",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "12 months",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 141,
+      "speciality": "Trauma",
+      "procedure_name": "Incisional hernia repair - mesh",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "12 months",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 142,
+      "speciality": "Trauma",
+      "procedure_name": "Incisional hernia repair - component separation",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "12 months",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 143,
+      "speciality": "Trauma",
+      "procedure_name": "Reversal of loop colostomy",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "9 months",
+      "ttg_days": 270,
+      "ttg_minimum_70_pct": 189,
+      "ttg_alert_90_pct": 243,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 144,
+      "speciality": "Trauma",
+      "procedure_name": "Reversal of ileostomy",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 145,
+      "speciality": "Trauma",
+      "procedure_name": "Reversal of Hartmann's procedure",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "12 months",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 146,
+      "speciality": "Trauma",
+      "procedure_name": "Skin graft",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "4 months",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 147,
+      "speciality": "Trauma",
+      "procedure_name": "Thoracotomy for decortication",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "4 weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 148,
+      "speciality": "Trauma",
+      "procedure_name": "Tracheostomy",
+      "level": "R/T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 149,
+      "speciality": "Trauma",
+      "procedure_name": "Video-assisted thoracoscopic surgery",
+      "level": "C",
+      "care_icu": "HC",
+      "ttg_months": "7 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 150,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Arthroplasty(hip&knee primary,revisions& sepsis)",
+      "level": "R/T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "18 months",
+      "ttg_days": 540,
+      "ttg_minimum_70_pct": 378,
+      "ttg_alert_90_pct": 486,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M17",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "M87",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "T84",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 151,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Foot and Ankle(degenarative, acqiured& sports)",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "12 months",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M20",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 152,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Paediatrics(congenital,developmental& acquired)",
+      "level": "R/T",
+      "care_icu": "ICU",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q66",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "G80",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "M92",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 153,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Shoulder(Degenarative,soft tissue and sports)",
+      "level": "R/T",
+      "care_icu": "ICU",
+      "ttg_months": "24 months",
+      "ttg_days": 720,
+      "ttg_minimum_70_pct": 504,
+      "ttg_alert_90_pct": 648,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M75",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "M93",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 154,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Spine(Defofmity,degenarative,infection,tumour)",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "36 months",
+      "ttg_days": 1080,
+      "ttg_minimum_70_pct": 756,
+      "ttg_alert_90_pct": 972,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M41",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "M47",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 155,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Sports(knee,ligaments &meniscus)",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M23",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 156,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Tumour and sepsis(Benign,malignat,osteomyelitis)",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "24 months",
+      "ttg_days": 720,
+      "ttg_minimum_70_pct": 504,
+      "ttg_alert_90_pct": 648,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "M86",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "C40",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "C79",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 157,
+      "speciality": "Orthopaedic",
+      "procedure_name": "Trauma ,dislocations and septic arthristis",
+      "level": "R/T",
+      "care_icu": "ICU",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "S codes",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 158,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Removal of perm cath",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z45.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 159,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Perm Cath placement",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z49.01",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 160,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Peritoneal Dialysis Catheter Removal",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z49.02",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 161,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Peritoneal Dialysis Catheter Placement",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z49.02",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 162,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Removal of ureteric stent post Renal Transplant",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z46.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 163,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Renal Transplant",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "**** - depends on organ availability",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z94.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 164,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Hernia repair in the transplant patient",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K43.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 165,
+      "speciality": "Transplant Surgery",
+      "procedure_name": "Biliary stent removal in liver transplant patient",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "7 days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z46.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 166,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "haemorrhoidhectomy",
+      "level": "D",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "k64",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 167,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "lateral sphincterotomy",
+      "level": "D",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "k60.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 168,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "anal fistulotomy/fistulectomy",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "k60.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 169,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "rectovaginal fistula surgery",
+      "level": "R/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N82.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 170,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "rectal prolapse surgery",
+      "level": "R/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "k62.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 171,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "anal sphinteroplasty",
+      "level": "R/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "0DQR0ZZ",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 172,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "cauterization perianal warts",
+      "level": "D",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "A63.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 173,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "creation of stoma",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z93.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 174,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "local reversal stoma",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z98.89",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 175,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "reversal hartmann's procedure",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "OWQFXZ2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 176,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "colectomies(left/right/total)",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z90.49",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 177,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "proctocolectomy",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H04.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 178,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "anterior resection",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H33.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 179,
+      "speciality": "Colorectal Surgery",
+      "procedure_name": "abdominoperineal resection",
+      "level": "R/C",
+      "care_icu": "HC",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "0DTP7ZZ",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 180,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Adult congenital heart disease \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q24.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 181,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Coronary artery bypass \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "16 Weeks",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I25.10",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 182,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Valvular heart replacements \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "14 Weeks",
+      "ttg_days": 105,
+      "ttg_minimum_70_pct": 74,
+      "ttg_alert_90_pct": 95,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I35.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 183,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Infective Endocarditis",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "2 Weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I33.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 184,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Pericardial disease \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I31.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 185,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Cardiac tumours \u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D15.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 186,
+      "speciality": "Cardiac Surgery",
+      "procedure_name": "Pulmonary endarterectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I26.99",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 187,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Segmentectomy / Wedge Resection\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "6 Weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "D38.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 188,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Lobectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 189,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Pneumonectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "10 Weeks",
+      "ttg_days": 75,
+      "ttg_minimum_70_pct": 53,
+      "ttg_alert_90_pct": 68,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C34.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 190,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Bullectomy / Pleurectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "8 Weeks",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J43.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 191,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Tracheal resection / Dilatation / Stent\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "2 Weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C33",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 192,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Hydatid Cystectomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "6 Weeks",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "B67.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 193,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Washout / Decortication\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J86.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 194,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Basal Drain /\u00a0Eloesser\u00a0Flap / Thoracoplasty\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "4 Weeks",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J86.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 195,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Oesophagoscopy for foreign body removal\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T18.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 196,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Tracheostomy\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J95.00",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 197,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Thoracotomy for washout and rib fixation\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Weeks",
+      "ttg_days": 23,
+      "ttg_minimum_70_pct": 16,
+      "ttg_alert_90_pct": 21,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "S22.x",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 198,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Thoracotomy for mediastinal drainage\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "J85.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 199,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Bronchoscopy (Diagnostic / Therapeutic)\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "0=Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "R09.89",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 200,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Biopsy (Pleura, Lung, Mediastinal)\u200b",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Weeks",
+      "ttg_days": 23,
+      "ttg_minimum_70_pct": 16,
+      "ttg_alert_90_pct": 21,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z01.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 201,
+      "speciality": "Thoracic Surgery",
+      "procedure_name": "Sternal wound / thoracotomy wound debridement\u200b",
+      "level": "R/T/C",
+      "care_icu": "ICU",
+      "ttg_months": "1 Week/0=Emergency",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T81.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 202,
+      "speciality": "Breast",
+      "procedure_name": "mastectomy and lymph node dissection",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1.5 Months",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C50.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 203,
+      "speciality": "Breast",
+      "procedure_name": "Tumor excision and lymph node dissection",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "1.5 Months",
+      "ttg_days": 45,
+      "ttg_minimum_70_pct": 32,
+      "ttg_alert_90_pct": 41,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C50.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 204,
+      "speciality": "Breast",
+      "procedure_name": "fibroadenoma excision",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D24",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 205,
+      "speciality": "Breast",
+      "procedure_name": "microductectomy",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C64.52",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 206,
+      "speciality": "Breast",
+      "procedure_name": "subcutanous mastectomy for gynaecomastia",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N62",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 207,
+      "speciality": "Skin and Soft tissue",
+      "procedure_name": "melanoma excision",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "3 weeks",
+      "ttg_days": 23,
+      "ttg_minimum_70_pct": 16,
+      "ttg_alert_90_pct": 21,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C43",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 208,
+      "speciality": "Skin and Soft tissue",
+      "procedure_name": "lipoma excision",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D17.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 209,
+      "speciality": "Skin and Soft tissue",
+      "procedure_name": "lower limb Sarcoma",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C94.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 210,
+      "speciality": "Endocrine",
+      "procedure_name": "Total Thyroidectomy",
+      "level": "T/C",
+      "care_icu": "ICU",
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z85.850",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "Z13.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 211,
+      "speciality": "Endocrine",
+      "procedure_name": "thyroid lobectomy",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "6 Month",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z13.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 212,
+      "speciality": "Endocrine",
+      "procedure_name": "parathyroid excision",
+      "level": "T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "6 month",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "E21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 213,
+      "speciality": "Endocrine",
+      "procedure_name": "adrenal gland adenoma excision",
+      "level": "T/C",
+      "care_icu": "HC/ICU",
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "C74",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 214,
+      "speciality": "General Surgery",
+      "procedure_name": "Laparoscopic inguinal hernia repair",
+      "level": "R/T",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K40",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 215,
+      "speciality": "General Surgery",
+      "procedure_name": "Open inguinal hernia repair",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K40",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 216,
+      "speciality": "General Surgery",
+      "procedure_name": "Cholecystectomy",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Z90.48",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 217,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Cataract surgery",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H25.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 218,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Rhegmatogenous retinal detachmemnt",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "1 week",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H33.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 219,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Tractional retinal detachmemt (Diabetic)",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H36.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 220,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Macular Hole & Epiretinal membranes",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H35.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 221,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Paediatric cataract",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 Month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H26.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 222,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Squint",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H50",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 223,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Ptosis Repair",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H02.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 224,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Glaucoma Surgery (Paeds Glaucoma)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 Months",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H40.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 225,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Glaucoma Surgery (Adult Glaucoma)",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "1 Month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H40.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 226,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Corneal Transplant",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H18.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 227,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Ectropion Repair",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H02.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 228,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Entropion Repair",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H02.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 229,
+      "speciality": "Ophthalmology",
+      "procedure_name": "Orbital Decompression",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "H05.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 230,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Surgical removal of Impacted Teeth",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "1-2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K01.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 231,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Head and Neck Infections",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K04.7",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K04.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K12.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 232,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Craniofacial Trauma",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "2 Weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "S02.60",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "S02.61",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "S02.40",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "S02.41",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 5,
+          "code": "S02.30",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 233,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Dento-facial Implants",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K08.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K08.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K08.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 234,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Orthognathic Surgery",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 Year",
+      "ttg_days": 360,
+      "ttg_minimum_70_pct": 252,
+      "ttg_alert_90_pct": 324,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K07.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K07.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K07.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "K07.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 5,
+          "code": "K07.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 6,
+          "code": "K0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 235,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Maxillo-facial and Oral Tumour Resection",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D10.3",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K10.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K10.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 236,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Bone Graft: Jaw Reconstruction",
+      "level": "R/T/C",
+      "care_icu": "HC",
+      "ttg_months": "2 Months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K08.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K08.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 237,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Enucleation of Jaw Cystic Lesions",
+      "level": "All",
+      "care_icu": null,
+      "ttg_months": "3 Months",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K09.0",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "K09.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "K09.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "K09.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 5,
+          "code": "K09.9",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 238,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Temporomandibular Joint Surgery and Reconstruction",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "6 Months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "K07.6",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 239,
+      "speciality": "Maxillo-Facial & Oral Surgery",
+      "procedure_name": "Cleft lip and Palate Secondary alveolar bone graft",
+      "level": "T/C",
+      "care_icu": "HC",
+      "ttg_months": "4 Months",
+      "ttg_days": 120,
+      "ttg_minimum_70_pct": 84,
+      "ttg_alert_90_pct": 108,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Q37",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 3,
+          "code": "Q37.4",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 4,
+          "code": "Q37.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 240,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "peripheral varterial disease (endovascular/open intervention)",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I70.21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 241,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Carotid artery (endarterectomy/stenting)",
+      "level": "T",
+      "care_icu": "HC/ICU",
+      "ttg_months": "2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I65.2",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 242,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Varicose vein open intervention",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I83.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 243,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Varicose vein endovenous intervention",
+      "level": "T",
+      "care_icu": null,
+      "ttg_months": "6 months",
+      "ttg_days": 180,
+      "ttg_minimum_70_pct": 126,
+      "ttg_alert_90_pct": 162,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I83.1",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 244,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Aortic Aneurysm/Dissection (open/endovascular)",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I71",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 245,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Aortic occlusive disease (open/endovacular)",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "1 months",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "I70.21",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 246,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Vascular trauma open intervention",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 247,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Vascular trauma endovascular intervention",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "0=EMERGENCY",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [],
+      "isMock": true
+    },
+    {
+      "id": 248,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "carotid body tumour removal",
+      "level": "T",
+      "care_icu": "ICU",
+      "ttg_months": "2 months",
+      "ttg_days": 60,
+      "ttg_minimum_70_pct": 42,
+      "ttg_alert_90_pct": 54,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "D35.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 249,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "Dialysis access (catheters, av fistula, peritoneal dialysis)",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N19.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 250,
+      "speciality": "Vascular Surgery",
+      "procedure_name": "deep venous system stenosis/occlusion",
+      "level": "T",
+      "care_icu": "HC",
+      "ttg_months": "2 weeks",
+      "ttg_days": 15,
+      "ttg_minimum_70_pct": 11,
+      "ttg_alert_90_pct": 14,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "N19.5",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 251,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Compartment Release - Fasciotomies/Escharotomies",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "Emergency",
+      "ttg_days": null,
+      "ttg_minimum_70_pct": null,
+      "ttg_alert_90_pct": null,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "T79.A",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 252,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Burn Scrubdown",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "48 hours",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 253,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Skin Substitutes in Acute Burns",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "3 Days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 254,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Burn Excision",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "7 Days",
+      "ttg_days": 7,
+      "ttg_minimum_70_pct": 5,
+      "ttg_alert_90_pct": 6,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 255,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Burn Debridement",
+      "level": "D/R/T",
+      "care_icu": null,
+      "ttg_months": "10 Days",
+      "ttg_days": 10,
+      "ttg_minimum_70_pct": 7,
+      "ttg_alert_90_pct": 9,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 256,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Skin Graft",
+      "level": "R/T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 257,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Contracture Release - Vital Regions(e.g. Ectropion)",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "1 month",
+      "ttg_days": 30,
+      "ttg_minimum_70_pct": 21,
+      "ttg_alert_90_pct": 27,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    },
+    {
+      "id": 258,
+      "speciality": "Speciality - Burn care",
+      "procedure_name": "Contracture Release - Other Regions",
+      "level": "T/C",
+      "care_icu": null,
+      "ttg_months": "3 month",
+      "ttg_days": 90,
+      "ttg_minimum_70_pct": 63,
+      "ttg_alert_90_pct": 81,
+      "icd_codes": [
+        {
+          "id": 1,
+          "code": "Y27.8",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        },
+        {
+          "id": 2,
+          "code": "T29",
+          "description": "Imported from Master TTGs",
+          "pivot": {
+            "mapping_type": "Primary"
+          }
+        }
+      ],
+      "isMock": true
+    }
+  ]
+}

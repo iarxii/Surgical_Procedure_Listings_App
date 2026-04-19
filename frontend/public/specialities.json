@@ -1,0 +1,73 @@
+{
+  "data": [
+    {
+      "name": "Breast"
+    },
+    {
+      "name": "Cardiac Surgery"
+    },
+    {
+      "name": "Colorectal Surgery"
+    },
+    {
+      "name": "ENT"
+    },
+    {
+      "name": "Ellective Upper GIT"
+    },
+    {
+      "name": "Endocrine"
+    },
+    {
+      "name": "Endocrine Surgery"
+    },
+    {
+      "name": "General Surgery"
+    },
+    {
+      "name": "Maxillo-Facial & Oral Surgery"
+    },
+    {
+      "name": "Obstetrics & Gynaecology"
+    },
+    {
+      "name": "Ophthalmology"
+    },
+    {
+      "name": "Orthopaedic"
+    },
+    {
+      "name": "Paediatric Surgery"
+    },
+    {
+      "name": "Plastic & Reconstructive Surgery"
+    },
+    {
+      "name": "Radiation Oncology"
+    },
+    {
+      "name": "Skin and Soft tissue"
+    },
+    {
+      "name": "Speciality - Burn care"
+    },
+    {
+      "name": "Surgery"
+    },
+    {
+      "name": "Surgical Gastroenterology"
+    },
+    {
+      "name": "Thoracic Surgery"
+    },
+    {
+      "name": "Transplant Surgery"
+    },
+    {
+      "name": "Trauma"
+    },
+    {
+      "name": "Vascular Surgery"
+    }
+  ]
+}

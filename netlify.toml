@@ -1,0 +1,19 @@
+[build]
+  base = "frontend/"
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  # Route API proxy searches to serverless functions first
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  # Forward all other routing to the Vite app (React Router SPA support)
+  from = "/*"
+  to = "/index.html"
+  status = 200

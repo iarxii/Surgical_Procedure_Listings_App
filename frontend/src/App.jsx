@@ -15,6 +15,7 @@ import { Activity, Clock, AlertTriangle, CheckCircle2, BarChart3, Search, Layout
 import Login from './pages/Login';
 import AdminPortal from './pages/AdminPortal';
 import ProcedureImport from './pages/ProcedureImport';
+import LegalPage from './pages/LegalPage';
 import { Navigate, useLocation } from 'react-router-dom';
 
 // import logo from './assets/gauteng-health_12_orig.jpg';
@@ -453,6 +454,11 @@ function AppContent() {
               <ProcedureImport />
             </AdminRoute>
           } />
+
+          {/* Legal Pages */}
+          <Route path="/license" element={<LegalPage type="license" />} />
+          <Route path="/privacy" element={<LegalPage type="privacy" />} />
+          <Route path="/terms" element={<LegalPage type="terms" />} />
         </Routes>
       </main>
       <Footer />

@@ -36,7 +36,7 @@ const CONTENT = {
       },
       {
         heading: 'Intellectual Property',
-        text: 'The code mapping logic and integrated datasets remain the property of Adaptivconcept FL and the respective health authorities.'
+        text: 'The code mapping logic and integrated datasets remain the property of Thabang Mposula and the respective health authorities.'
       }
     ]
   },
@@ -46,7 +46,7 @@ const CONTENT = {
     sections: [
       {
         heading: 'MIT License',
-        text: 'Copyright (c) 2026 Thabang Mposula | Adaptivconcept FL'
+        text: 'Copyright (c) 2026 Thabang Mposula'
       },
       {
         heading: 'Permissions',

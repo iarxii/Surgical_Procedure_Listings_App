@@ -12,7 +12,7 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs font-medium">
         <div className="mb-2 sm:mb-0 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
-          <span>&copy; {new Date().getFullYear()} Thabang Mposula | Adaptivconcept FL. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Thabang Mposula. All rights reserved.</span>
         </div>
         <div className="flex items-center gap-4">
           <a 
